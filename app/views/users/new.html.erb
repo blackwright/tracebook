@@ -1,0 +1,62 @@
+<div id="signup">
+  <section class="main-bkg">
+    <div class="main-container">
+
+      <div class="col-left">
+        <h2>Connect with friends and the<br>world around you on Danebook.</h2>
+        <table class="feature">
+          <tr>
+            <td>
+              <%= image_tag("signup/see.png") %></td>
+            <td>
+              <span>See photos and updates</span>
+              <span class="smaller">from your friends.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= image_tag("signup/share.png") %></td>
+            <td><span>Share what's new</span>
+              <span class="smaller">in your life on your Timeline.</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= image_tag("signup/find.png") %></td>
+            <td>
+              <span>Make connections</span>
+              <span class="smaller">using Danebook Search.</span>
+            </td>
+          </tr>
+        </table>
+      </div><!--
+
+      --><div class="col-right">
+        <h1>Sign Up</h1>
+        <h3>Let's get started!</h3>
+
+        <%= form_for @user do |f| %>
+          <%= f.text_field :first_name, class: "input",
+                                        placeholder: "First name" %>
+          <%= f.text_field :last_name, class: "input",
+                                       placeholder: "Last name" %>
+          <%= f.text_field :email, class: "input",
+                                   placeholder: "Email" %>
+          <%= f.password_field :password, class: "input",
+                                          placeholder: "Password" %>
+          <%= f.password_field :password_confirmation, class: "input",
+                               placeholder: "Password confirmation" %>
+          
+          <input id="button" class="highlight" type="submit" value="Sign Up">
+        <% end %>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="login-footer">
+    <p>A localized social network written in Ruby on Rails by <%= link_to "Blackwright", "https://github.com/blackwright" %>.</p>
+
+    <hr>
+  </section>
+</div>

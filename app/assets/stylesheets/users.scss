@@ -1,3 +1,247 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#signup {
+
+  .main-bkg {
+    background-color: #edf0f5;
+    min-width: 1000px;
+    padding-top: 25px;
+    padding-bottom: 60px;
+  }
+
+  .main-container {
+    width: 1000px;
+    margin: 0 auto;
+  }
+
+  .col-left,
+  .col-right {
+    vertical-align: top;
+  }
+
+  .col-left {
+    display: inline-block;
+    width: 580px;
+    padding-top: 40px;
+    padding-right: 50px;
+  }
+
+  .col-left h2 {
+    padding-bottom: 10px;
+    line-height: 1.25em;
+  }
+
+  table.feature {
+    border-collapse: separate;
+    border-spacing: 18px 30px;
+    margin-left: -18px;
+  }
+
+  table.feature td {
+    vertical-align: middle;
+  }
+
+  table.feature td:first-child {
+    text-align: center;
+  }
+
+  .feature span {
+    font-weight: 600;
+    padding-right: 10px;
+  }
+
+  .feature .smaller {
+    font-weight: 400;
+    color: #666;
+    font-size: .9em;
+  }
+
+  .col-right {
+    display: inline-block;
+    width: 420px;
+  }
+
+  .col-right h3 {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
+  .col-right input {
+    width: 100%;
+  }
+
+  .input {
+    margin: 5px 0;
+    font-size: 1.2em;
+    height: 2.2em;
+    padding-left: 12px;
+    border: 1px solid #bdc7d8;
+    border-radius: 5px;
+  }
+
+  #firstname {
+    display: inline-block;
+    width: 208px;
+  }
+
+  #lastname {
+    margin-left: 12px;
+    display: inline-block;
+    width: 200px
+  }
+
+  .form h3 {
+    padding-bottom: 10px;
+  }
+
+  .form select {
+    height: 30px;
+    padding: 5px;
+    border: solid 1px #bdc7d8;
+  }
+
+  .gender {
+    display: table;
+    padding: 20px 0;
+  }
+
+  .gender input[type="radio"] {
+    width: 13px;
+    height: 13px;
+    margin-right: 8px;
+  }
+
+  .gender label {
+    display: table-cell;
+    vertical-align: bottom;
+    padding-right: 20px;
+  }
+
+  #button {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+    display: block;
+    color: #fff;
+    background: #67a153;
+    background: -webkit-linear-gradient(#73b25e, #578843);
+    background: -o-linear-gradient(#73b25e, #578843);
+    background: -moz-linear-gradient(#73b25e, #578843);
+    height: 40px;
+    width: 200px;
+    border: 1px solid #3b6e22;
+    border-radius: 6px;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 2px #436935;
+  }
+
+  .login-footer {
+    font-size: .75em;
+    color: #888;
+    width: 1000px;
+    margin: 10px auto;
+  }
+}
+
+
+
+/* Timeline Page */
+
+#timeline {
+  .timeline-list {
+    dt {
+      float: left;
+      clear: left;
+      padding: 3px 0;
+
+      &:after {
+        content: ":";
+      }
+    }
+
+    dd {
+      margin-left: 120px;
+      padding: 3px 0;
+    }
+  }
+
+  .box-link {
+    margin-top: 10px;
+  }
+
+  .friend-caption {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 16px;
+    overflow: hidden;
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
+
+  }
+
+  .author-img {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+  }
+
+  .author-details {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .post-date {
+      color: #777;
+      font-size: 13px;
+      display: block;
+    }
+
+  .inline {
+    display: inline;
+    margin-left: 3px;
+  }
+
+  .post-feedback {
+    font-size: 13px;
+    color: #666;
+  }
+
+  .divider {
+    margin-top: 15px;
+    height: 1px;
+    border-top: 1px solid #ccc;
+  }
+
+  .comment {
+    padding-top: 15px;
+  }
+
+  .comment-body {
+    width: calc(100% - 85px);
+    margin-left: 15px;
+
+    p {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  }
+
+  #write-comment textarea {
+    margin: 15px 0 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .col-padding {
+      padding-right: 35px;
+    }
+  }
+}
