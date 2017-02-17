@@ -1,0 +1,33 @@
+<div class="container">
+
+  <main>
+    <!-- Search Header -->
+      <div class="row">
+        <section class="box box-header header-title col-xs-12">
+          <header>
+            <h2><%= @search_results.count %> Search Results</h2>
+          </header>
+        </section>
+      </div><!-- end row -->
+
+      <!-- Search Body -->
+      <div class="row">
+        <section class="box padding-bottom box-body col-xs-12">
+          <div class="row">
+
+            <% if @search_results.blank? %>
+              <p class="text-center margin-top padding-bottom">
+                No results by that name.
+              </p>
+            <% else %>
+              <%= render partial: "search_result",
+                         collection: @search_results %>
+            <% end %>
+
+          </div><!-- end row -->
+        </section>
+      </div><!-- end row -->
+
+  </main>
+
+</div>
