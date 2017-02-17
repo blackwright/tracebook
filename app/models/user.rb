@@ -42,6 +42,12 @@ class User < ApplicationRecord
   after_create :create_profile
 
 
+
+  MISSING_AVATAR_URL = "https://s3.amazonaws.com/blackwright-danebook/missing/medium/missing.png"
+  MISSING_COVER_URL = "https://s3.amazonaws.com/blackwright-danebook/missing/medium/missing.png"
+
+
+
   def generate_token
     begin
       self[:auth_token] = SecureRandom.urlsafe_base64
@@ -78,5 +84,20 @@ class User < ApplicationRecord
     num.times { result << friends.shuffle!.pop }
     result
   end
-  
+
+  def avatar_url
+    if avatar
+      avatar.image.url(:medium)
+    else
+      MISSING_AVATAR_URL
+    end
+  end
+
+  def cover_url
+    if cover
+      cover.image.url
+    else
+      MISSING_COVER_URL
+    end
+  end  
 end
