@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   resources :users, except: [:edit, :update] do
     resource :profile, only: [:show, :edit, :update]
+    resources :posts, only: [:create, :destroy]
   end
 end
