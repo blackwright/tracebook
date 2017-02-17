@@ -1,0 +1,31 @@
+<div class="container">
+
+  <%= render partial: "shared/cover", :locals => { user: @user } %>
+
+  <main id="timeline">
+    <div class="row">
+
+      <!-- Right Column -->
+      <div class="col-sm-7 col-sm-push-5 col-md-8 col-md-push-4">
+        <!-- Create Post -->
+        <% if @new_post %>
+          <%= render partial: "posts/new",
+              :locals => { user: @user, post: @new_post } %>
+        <% end %>
+        <!-- Posts -->
+        <%= render @posts %>
+      </div>
+
+      <!-- Left Column -->
+      <div class="col-sm-5 col-sm-pull-7 col-md-4 col-md-pull-8 col-padding">
+        <%= render partial: "posts/side_sections",
+                            :locals => { user: @user,
+                                         profile: @user.profile,
+                                         photos: @user.side_photos,
+                                         friends: @user.side_friends } %>
+      </div>
+
+    </div>
+  </main>
+
+</div>

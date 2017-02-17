@@ -1,0 +1,67 @@
+<!-- About Section -->
+<section class="row">
+  <div class="box box-header header-title">
+    <h4>About</h4>
+  </div>
+  <div class="box box-body padding-top col-xs-12">
+    <dl class="timeline-list">
+      <dt>Born on</dt>
+      <dd><%= out date_to_string(profile.birthday) %></dd>
+      <dt>Went to</dt>
+      <dd><%= out profile.college %></dd>
+      <dt>Hometown</dt>
+      <dd><%= out profile.hometown %></dd>
+      <dt>Currently lives</dt>
+      <dd><%= out profile.location %></dd>
+    </dl>
+  </div>
+</section>
+
+<!-- Photos Section -->
+<section class="row">
+  <div class="box box-header header-title">
+    <h4>Photos<small>(<%= user.photos.count %>)</small></h4>
+  </div>
+  <div class="box box-body padding-top padding-bottom col-xs-12">
+    <div class="row">
+      
+      <%= render partial: "posts/side_photo", collection: photos %>
+
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="text-center box-link">
+          <%= link_to "See More Photos", user_photos_path(user) %>
+        </p>
+      </div>
+    </div>
+  </div><!-- end box -->
+</section>
+
+<!-- Friends Section -->
+<section class="row">
+  <div class="box box-header header-title">
+    <h4>Friends<small>(<%= user.all_friends.count %>)</small></h4>
+  </div>
+  <div class="box box-body padding-top padding-bottom col-xs-12">
+    <% friends.each_with_index do |friend, i| %>
+      <% if (i % 3).zero? %>
+        <div class="row">
+      <% end %>
+        
+          <%= render partial: "posts/side_friend",
+                              :locals => { friend: friend } %>
+
+      <% if i % 3 == 2 %>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="text-center box-link">
+          <%= link_to "See More Friends", user_friends_path(user) %>
+        </p>
+      </div>
+    </div>
+  </div><!-- end box -->
+</section>

@@ -1,0 +1,14 @@
+<section class="row">
+  <div class="box box-header header-title">
+    <h4>Post</h4>
+  </div>
+  <%= form_for [user, post], id: "write-post" do |f| %>
+    <div class="box box-body padding-top padding-bottom col-xs-12">
+      <%= f.text_area :body, rows: 4,
+          placeholder: "Tell the world something..."%>
+    </div>
+    <div class="box box-footer col-xs-12">
+      <%= f.submit "Post", class: "btn btn-md btn-primary pull-right" %>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,8 @@
+<div class="col-xs-4 box-img">
+  <%= link_to friend do %>
+    <%= image_tag friend.avatar_url %>
+  <% end %>
+  <div class="friend-caption">
+    <%= link_to friend.full_name, user_path(friend) %>
+  </div>
+</div>

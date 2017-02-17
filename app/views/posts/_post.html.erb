@@ -1,0 +1,60 @@
+<section class="row">
+  <div class="box box-post padding-top padding-bottom col-xs-12">
+
+    <!-- Author -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="author-img">
+          <%= image_tag post.author.avatar_url %>
+        </div>
+        <div class="author-details">
+          <%= link_to post.author.full_name %>
+          <%= time_tag post.created_at.to_date, posted_on(post.created_at),
+              pubdate: true, class: "post-date" %>
+        </div>
+      </div>
+    </div><!-- end author -->
+
+    <!-- Content -->
+    <div class="row padding-top">
+      <div class="col-xs-12">
+        <p><%= post.body %></p>
+      </div>
+    </div><!-- end content -->
+
+  </div><!-- end box -->
+
+  <!-- Footer -->
+  <div class="box box-footer padding-top padding-bottom col-xs-12">
+    <!-- Like/Comment/Delete Links -->
+    <div class="post-links">
+
+      <%= render_like_link(post) %>
+
+      <% if current_user == post.author %>
+        <%= link_to "Delete", user_post_path(post.author, post),
+                              :method => :delete,
+                              :data => { confirm: "Delete post?" },
+                              class: "pull-right" %>
+      <% end %>
+    </div><!-- end links -->
+
+    <!-- Feedback -->
+    <div class="post-feedback padding-top">
+      <span><%= post_feedback(post) %></span>
+    </div><!-- end feedback -->
+
+    <div class="divider"></div>
+
+    <!-- Comments -->
+    <div class="post-comments">
+
+      <%= render post.comments %>
+
+    </div><!-- end comments -->
+
+    <%= render partial: "comments/comment_form",
+                        :locals => { commentable: post } %>
+
+  </div><!-- end footer box -->
+</section>

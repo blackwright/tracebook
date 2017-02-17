@@ -19,6 +19,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.includes(:authored_posts)
+                .find_by_id(params[:id])
+    @posts = @user.authored_posts
+    @new_post = Post.new if current_user == @user
+  end
+
     private
 
     def set_user

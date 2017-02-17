@@ -1,0 +1,7 @@
+<div class="col-xs-4">
+  <div class="box side-photo">
+    <%= link_to user_photo_path(side_photo.author, side_photo) do %>
+      <%= image_tag side_photo.image.url %>
+    <% end %>
+  </div>
+</div>
