@@ -22,4 +22,13 @@ class FriendingsController < ApplicationController
       redirect_back(fallback_location: user_path(current_user))
     end
   end
+
+  def index
+    if @user = User.find_by_id(params[:user_id])
+      @friends = @user.all_friends
+    else
+      flash[:error] = "User not found"
+      redirect_back(fallback_location: user_path(current_user))
+    end
+  end
 end
