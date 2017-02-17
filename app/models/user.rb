@@ -85,6 +85,15 @@ class User < ApplicationRecord
     result
   end
 
+  def self.search(query)
+    where("first_name ILIKE ? OR last_name ILIKE ?",
+          "#{query}%", "#{query}%") unless query.blank?
+  end
+
+  def side_photos
+    photos.limit(6)
+  end
+
   def avatar_url
     if avatar
       avatar.image.url(:medium)
