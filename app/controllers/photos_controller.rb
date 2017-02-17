@@ -17,6 +17,18 @@ class PhotosController < ApplicationController
     end
   end
 
+  def link
+    @photo = current_user.photos.build
+    @photo.image_from_url(params[:url])
+    if @photo.save
+      flash[:success] = "Photo created!"
+      redirect_to user_photo_path(@user, @photo)
+    else
+      flash.now[:error] = "Couldn't add photo"
+      render :new
+    end
+  end
+
   def show
     @photo = Photo.find_by_id(params[:id])
   end
