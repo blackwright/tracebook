@@ -1,0 +1,95 @@
+<div class="container">
+
+  <%= render partial: "shared/cover", :locals => { user: @user } %>
+
+  <main>
+    <!-- About Header -->
+    <div class="row">
+      <section class="box box-header header-title col-xs-12">
+        <header>
+          <h2>About</h2>
+          <a href="about_edit.html" class="btn btn-small btn-primary right hidden">Edit Profile</a>
+        </header>
+      </section>
+    </div><!-- end row -->
+
+    <!-- About Body -->
+    <div class="row">
+      <section class="box box-body padding-top padding-bottom col-xs-12">
+
+        <%= form_for [@user, @profile], class: "edit-form" do |f| %>
+          <div class="row">
+
+            <!-- Left Column -->
+            <div class="col-md-5 form-horizontal">
+              <h3>Basic Information</h3>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Birthday</label>
+                <div class="col-md-9">
+                  <p class="form-control-static">
+                    <%= out @profile.birthday %>
+                  </p>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :college, class: "col-md-3 control-label" %>
+                <div class="col-md-9">
+                  <%= f.text_field :college, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :hometown, class: "col-md-3 control-label" %>
+                <div class="col-md-9">
+                  <%= f.text_field :hometown, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :location, class: "col-md-3 control-label" %>
+                <div class="col-md-9">
+                  <%= f.text_field :location, class: "form-control" %>
+                </div>
+              </div>
+
+              <h3>Contact Information</h3>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Email</label>
+                <div class="col-md-9">
+                  <p class="form-control-static">
+                    <%= out @user.email %>
+                  </p>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :phone, class: "col-md-3 control-label" %>
+                <div class="col-md-9">
+                  <%= f.text_field :phone, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-md-7">
+              <h3>Words to Live By</h3>
+                <%= f.text_area :tagline, rows: 4, class: "form-control" %>
+              <h3>About Me</h3>
+                <%= f.text_area :about, rows: 7, class: "form-control" %>
+            </div>
+
+          </div><!-- end row -->
+
+          <!-- Submit Button -->
+          <div class="row">
+            <div class="col-xs-6 col-xs-offset-3 col-md-6 col-md-offset-3">
+                <%= f.submit "Save changes",
+                    class: "btn btn-primary btn-lg btn-block" %>
+            </div>
+          </div>
+
+        <% end %>
+
+      </section>
+    </div><!-- end row -->
+
+  </main>
+
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+
+  <%= render partial: "shared/cover", :locals => { user: @user } %>
+
+  <main>
+    <!-- About Header -->
+    <div class="row">
+      <section class="box box-header header-title col-xs-12">
+        <header>
+          <h2>About</h2>
+            <%= link_to "Edit Profile", edit_user_profile_path(@user),
+                class: "btn btn-small btn-primary right" %>
+        </header>
+      </section>
+    </div><!-- end row -->
+
+    <!-- About Body -->
+    <div class="row">
+      <section class="box box-body padding-top padding-bottom col-xs-12">
+
+        <!-- Left Column -->
+        <div class="col-md-5">
+          <h3>Basic Information</h3>
+          <dl class="about-list">
+            <dt>Birthday</dt>
+            <dd><%= out date_to_string(@profile.birthday) %></dd>
+            <dt>College</dt>
+            <dd><%= out @profile.college %></dd>
+            <dt>Hometown</dt>
+            <dd><%= out @profile.hometown %></dd>
+            <dt>Location</dt>
+            <dd><%= out @profile.location %></dd>
+          </dl>
+
+          <h3>Contact Information</h3>
+          <dl class="about-list">
+            <dt>Email</dt>
+            <dd><%= out @profile.user.email %></dd>
+            <dt>Telephone</dt>
+            <dd><%= out @profile.phone %></dd>
+          </dl>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-7">
+          <h3>Words to Live By</h3>
+          <p><%= out @profile.tagline %></p>
+          <h3>About Me</h3>
+          <p><%= out @profile.about %></p>
+        </div>
+
+      </section>
+    </div><!-- end row -->
+
+  </main>
+
+</div>

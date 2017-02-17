@@ -1,0 +1,48 @@
+<div class="row">
+  <section id="cover">
+    <!-- Cover Image -->
+    <div class="cover-img">
+      <%= link_to user_photos_path(user) do %>
+        <%= image_tag user.cover_url, alt: "Cover Photo" %>
+      <% end %>
+    </div>
+    <!-- Profile Image -->
+    <div class="profile-img">
+      <%= link_to user do %>
+        <%= image_tag user.avatar_url, alt: "Profile Picture" %>
+      <% end %>
+    </div>
+    <!-- Cover Name -->
+    <div class="cover-name">
+      <h1><%= user.full_name %></h1>
+    </div>
+  </section>
+</div>
+
+<div class="row">
+  <nav id="main-nav">
+    <ul class="nav">
+      <%= content_tag :li,
+          class: nav_link_class(user_path(user)) do %>
+        <%= link_to "Timeline", user_path(user) %>
+      <% end %><!--
+      --><%= content_tag :li,
+             class: nav_link_class(user_profile_path(user)) do %>
+        <%= link_to "About", user_profile_path(user) %>
+      <% end %><!--
+      --><%= content_tag :li,
+             class: nav_link_class(user_photos_path(user)) do %>
+        <%= link_to user_photos_path(user) do %>
+          Photos<small>(<%= user.photos.count %>)</small>
+        <% end %>
+      <% end %><!--
+      --><%= content_tag :li,
+             class: nav_link_class(user_friends_path(user)) do %>
+        <%= link_to user_friends_path(user) do %>
+          Friends<small>(<%= user.all_friends.count %>)</small>
+        <% end %>
+      <% end %>
+    </ul>
+    <%= render_profile_or_friend_link(user) %>
+  </nav>
+</div>
