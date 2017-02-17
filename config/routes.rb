@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   resources :users, except: [:edit, :update] do
+    get 'friends' => 'friendings#index'
     resource :profile, only: [:show, :edit, :update]
     resources :posts, only: [:create, :destroy] do
       resources :comments, only: [:create, :destroy],
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   end
 
   resources :likes, only: [:create, :destroy]
+  resources :friendings, only: [:create, :destroy]
 end
