@@ -1,0 +1,47 @@
+<div class="container">
+
+  <%= render partial: "shared/cover", :locals => { user: @user } %>
+
+  <main>
+    <!-- Photos Header -->
+    <div class="row">
+      <section class="box box-header header-title col-xs-12">
+        <header>
+          <h2>New Photo</h2>
+        </header>
+      </section>
+    </div><!-- end row -->
+
+    <div class="row">
+      <div class="box padding-bottom box-body col-xs-12">
+
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-2">
+            <h4 class="margin-top">Upload a Photo:</h4>
+          </div>
+          <%= form_for [@user, @photo] do |f| %>
+            <div class="form-group col-xs-6 col-xs-offset-2">
+              <%= f.file_field :image, class: "form-control" %>
+            </div>
+            <%= f.submit "Upload", class: "btn btn-primary" %>
+          <% end %>
+        </div><!-- end row -->
+
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-2">
+            <h4 class="margin-top">Link to an image from the web:</h4>
+          </div>
+          <%= form_tag user_photo_link_path do %>
+            <div class="form-group col-xs-6 col-xs-offset-2">
+              <%= text_field_tag :url, nil, class: "form-control" %>
+            </div>
+            <%= submit_tag "Link Image", class: "btn btn-primary" %>
+          <% end %>
+        </div><!-- end row -->
+
+      </div>
+    </div><!-- end row -->
+
+  </main>
+
+</div>
