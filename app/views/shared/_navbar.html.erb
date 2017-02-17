@@ -1,0 +1,59 @@
+<!-- Navbar -->
+<nav id="top-nav" class="navbar navbar-static-top">
+  <div class="container">
+
+    <!-- Burger Button -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <div class="nav-brand-img">
+          <%= image_tag("danish_flag.gif") %>
+        </div>
+        <span class="nav-brand-word">Danebook</span>
+      </a>
+    </div><!-- end navbar-header -->
+
+    <!-- Collapsible Nav -->
+    <div id="nav-collapse" class="collapse navbar-collapse">
+
+      <!-- Search Bar -->
+      <%= form_tag users_path, :method => :get,
+                               :enforce_utf8 => false,
+                               class: "navbar-form navbar-left" do %>
+        <div class="input-group">
+          <%= search_field_tag :search, nil, class: "form-control",
+                                             placeholder: "Search" %>
+          <div class="input-group-btn">
+            <%= button_tag name: nil, class: "btn btn-default" do %>
+              <i class="glyphicon glyphicon-search"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %><!-- end search bar -->
+
+      <!-- User & Sign Out Links -->
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to user_newsfeed_path(current_user) do %>
+            <span class="glyphicon glyphicon-user nav-icon"></span>
+            <%= current_user.full_name %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to session_path, :method => :delete do %>
+            <span class="glyphicon glyphicon-log-out nav-icon"></span>
+            Sign Out
+          <% end %>
+        </li>
+      </ul>
+    </div><!-- end collapsible nav -->
+
+  </div><!-- end container -->
+</nav><!-- end navbar -->
+  

@@ -3,12 +3,22 @@
   <head>
     <title>Tracebook</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
   </head>
 
   <body>
+
+    <% if signed_in_user? %>
+      <%= render "shared/navbar" %>
+    <% else %>
+      <%= render "shared/login" %>
+    <% end %>
+
+    <%= render "shared/flash" %>
+    
     <%= yield %>
+
   </body>
 </html>

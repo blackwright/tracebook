@@ -1,0 +1,37 @@
+<header class="login-header">
+  <div class="login-header-content">
+    <h1>Danebook</h1>
+    <%= form_tag session_path, class: "login-form-container" do %>
+      <table class="login-form">
+        <tr>
+          <td>
+            <%= label_tag :email %>
+          </td>
+          <td>
+            <%= label_tag :password %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= email_field_tag :email %>
+          </td>
+          <td>
+            <%= password_field_tag :password %>
+          <td>
+            <%= submit_tag "Log In" %>
+        </tr>
+        <tr>
+          <td>
+            <%= label_tag nil, id: "remember-me" do %>
+              <%= check_box_tag :remember_me %>
+              Remember me?
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "Forgot account?" %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</header>
