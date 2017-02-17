@@ -99,5 +99,5 @@ class User < ApplicationRecord
     else
       MISSING_COVER_URL
     end
-  end  
+  end
 end

@@ -1,0 +1,20 @@
+<% if current_user == photo.author %>
+  <div class="pull-right text-right">
+    <%= content_tag :div, class: "padding-top" do %>
+      <%= link_to "Set Profile Picture",
+          user_photo_avatar_path(user, photo,
+                                 :profile => { :avatar_id => photo.id }),
+          :method => :post %>
+      |
+      <%= link_to("Set Cover Image",
+          user_photo_cover_path(user, photo,
+                                :profile => { :cover_id => photo.id }),
+          :method => :post) %>
+    <% end %>
+    <%= content_tag :div, class: "padding-top" do %>
+      <%= link_to "Delete", user_photo_path(user, photo),
+                            :method => :delete,
+                            :data => { confirm: "Delete photo?" } %>
+    <% end %>
+  </div>
+<% end %>
