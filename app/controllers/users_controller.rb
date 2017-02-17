@@ -28,6 +28,10 @@ class UsersController < ApplicationController
     @new_post = Post.new if current_user == @user
   end
 
+  def index
+    @search_results = User.includes(:profile).search(params[:search])
+  end
+
     private
 
     def set_user
