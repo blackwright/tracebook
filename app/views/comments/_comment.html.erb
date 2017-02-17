@@ -1,0 +1,29 @@
+<div class="row comment">
+  <div class="col-xs-12">
+    <!-- Comment Author Image -->
+    <div class="author-img box pull-left">
+      <%= image_tag comment.author.avatar_url %>
+    </div>
+    <!-- Comment Body -->
+    <div class="comment-body pull-left">
+      <!-- Comment Author Details -->
+      <%= link_to comment.author.full_name, user_path(comment.author) %>
+      <%= time_tag comment.created_at.to_date,
+                   "Commented on #{date_to_string(comment.created_at)}",
+                   class: "post-date inline" %>
+
+      <!-- Comment Text -->
+      <p><%= comment.body %></p>
+
+      <!-- Comment Links -->
+      <div class="post-feedback">
+        <%= render_like_link(comment) %>
+        <span class="inline">
+          <%= comment_feedback(comment) %>
+        </span>
+        <%= render_delete_link(comment) %>
+      </div>
+      
+    </div>
+  </div>
+</div>
