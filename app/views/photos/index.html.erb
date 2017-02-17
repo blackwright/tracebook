@@ -1,0 +1,39 @@
+<div class="container">
+
+  <%= render partial: "shared/cover", :locals => { user: @user } %>
+
+  <main>
+    <!-- Photos Header -->
+    <div class="row">
+      <section class="box box-header header-title col-xs-12">
+        <header>
+          <h2>Photos</h2>
+          <% if current_user == @user %>
+            <%= link_to "+ Photo", new_user_photo_path(@user),
+                  class: "btn btn-small btn-primary right" %>
+          <% end %>
+        </header>
+      </section>
+    </div><!-- end row -->
+
+    <!-- Photos Body -->
+    <div class="row">
+      <section class="box padding-bottom box-body col-xs-12">
+        <div class="row">
+
+          <% if @photos.blank? %>
+            <p class="text-center margin-top padding-bottom">
+              You haven't uploaded any photos yet. Add some now!
+            </p>
+          <% else %>
+            <%= render partial: "photo", collection: @photos,
+                                         :locals => { user: @user } %>
+          <% end %>
+
+        </div><!-- end row -->
+      </section>
+    </div><!-- end row -->
+
+  </main>
+
+</div>

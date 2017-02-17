@@ -1,0 +1,12 @@
+<%= link_to user_photo_path(user, photo) do %>
+  <div class="col-xs-4 col-sm-3">
+    <div class="box item-box photo">
+      <%= image_tag photo.image.url(:medium) %>
+      <div class="box-photo-details">
+        <div class="photo-details">
+          Uploaded on <%= time_tag photo.created_at.to_date, date_to_string(photo.created_at), pubdate: true %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
