@@ -1,14 +1,22 @@
 class User < ApplicationRecord
 
+  has_one :profile, :dependent => :destroy,
+                    :inverse_of => :user
+
+  has_secure_password
+
+  
+
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :email, :presence => true
   validates :password, :length => { in: 8..24 },
                        :allow_nil => true
-                       
-  has_secure_password
+                      
+
 
   before_create :generate_token
+  after_create :create_profile
 
 
   def generate_token
