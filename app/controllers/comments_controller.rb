@@ -25,6 +25,21 @@ class CommentsController < ApplicationController
 
   private
 
+    def comment_params
+      params.require(:comment).permit(:commentable_type,
+                                      :commentable_id,
+                                      :body)
+    end
+
+    def commentable_id
+      case params[:commentable]
+      when "Post"
+        params[:post_id]
+      when "Photo"
+        params[:photo_id]
+      end
+    end
+
     def require_current_user
       @comment = Comment.find_by_id(params[:id])
       unless current_user == @comment.author
