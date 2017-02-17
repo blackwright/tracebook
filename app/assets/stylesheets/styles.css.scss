@@ -65,15 +65,12 @@ h3 {
     display: inline-block;
     height: 24px;
     width: 24px;
+    background-color: magenta;
     overflow: hidden;
     border-radius: 50%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-
-    img {
-      height: 100%;
-    }
   }
 
   .nav-brand-word {
