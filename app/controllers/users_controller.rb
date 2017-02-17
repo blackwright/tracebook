@@ -20,7 +20,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:authored_posts)
+    @user = User.includes(:authored_posts =>
+                          [{:likes => :liker},
+                           {:comments => [:author, {:likes => :liker}]}])
                 .find_by_id(params[:id])
     @posts = @user.authored_posts
     @new_post = Post.new if current_user == @user

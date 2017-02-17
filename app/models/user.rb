@@ -51,5 +51,26 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def destroy_friendship(ex_friend)
+    friended_users.delete(ex_friend) &&
+    ex_friend.friended_users.delete(self)
+  end
+
+  def friends?(user)
+    friended_users.include?(user) || users_friended_by.include?(user)
+  end
+
+  def all_friends
+    friended_users + users_friended_by
+  end
+
+  def side_friends
+    result = []
+    friends = all_friends
+    num = friends.size < 6 ? friends.size : 6
+    num.times { result << friends.shuffle!.pop }
+    result
+  end
   
 end
