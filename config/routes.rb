@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy],
                            :defaults => { commentable: "Post" }
     end
+    post 'photos/link' => 'photos#link', as: 'photo_link'
     resources :photos, except: [:edit, :update] do
       resources :comments, only: [:create, :destroy],
                            :defaults => { commentable: "Photo" }
