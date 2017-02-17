@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
     post 'photos/link' => 'photos#link', as: 'photo_link'
     resources :photos, except: [:edit, :update] do
+      post 'avatar' => 'profiles#set_avatar', as: 'avatar'
+      post 'cover' => 'profiles#set_cover', as: 'cover'
       resources :comments, only: [:create, :destroy],
                            :defaults => { commentable: "Photo" }
     end
