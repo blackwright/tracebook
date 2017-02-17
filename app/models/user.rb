@@ -2,6 +2,9 @@ class User < ApplicationRecord
 
   has_one :profile, :dependent => :destroy,
                     :inverse_of => :user
+  has_one :avatar, :through => :profile
+  has_one :cover, :through => :profile
+
   has_many :authored_posts, -> { order "created_at desc" },
                             :dependent => :destroy,
                             :class_name => "Post",
