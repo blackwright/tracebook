@@ -16,4 +16,21 @@ class PhotosController < ApplicationController
       render :new
     end
   end
+
+  private
+
+    def set_user
+      @user = User.find_by_id(params[:user_id])
+    end
+
+    def photo_params
+      params.require(:photo).permit(:image, :url)
+    end
+
+    def require_current_user
+      unless params[:user_id] == current_user.id.to_s
+        flash[:error] = "You're not authorized for that action"
+        redirect_back(fallback_location: current_user)
+      end
+    end
 end
