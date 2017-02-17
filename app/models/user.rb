@@ -9,6 +9,17 @@ class User < ApplicationRecord
   has_many :likes, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
+  has_many :initiated_friendings, :dependent => :destroy,
+                                  :class_name => "Friending",
+                                  :foreign_key => :friender_id
+  has_many :friended_users, :through => :initiated_friendings,
+                            :source => :friend_recipient
+  has_many :received_friendings, :dependent => :destroy,
+                                 :class_name => "Friending",
+                                 :foreign_key => :friended_id
+  has_many :users_friended_by, :through => :received_friendings,
+                               :source => :friend_initiator
+
   has_secure_password
 
   
