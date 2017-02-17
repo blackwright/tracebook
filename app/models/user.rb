@@ -7,6 +7,7 @@ class User < ApplicationRecord
                             :class_name => "Post",
                             :foreign_key => :user_id
   has_many :likes, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   has_secure_password
 
