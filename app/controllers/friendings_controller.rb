@@ -10,4 +10,16 @@ class FriendingsController < ApplicationController
       redirect_back(fallback_location: user_path(current_user))
     end
   end
+
+  def destroy
+    if ex_friend = User.find_by_id(params[:id])
+      current_user.destroy_friendship(ex_friend)
+
+      flash[:success] = "You've unfriended #{ex_friend.full_name}"
+      redirect_back(fallback_location: user_path(current_user))
+    else
+      flash[:error] = "User not found"
+      redirect_back(fallback_location: user_path(current_user))
+    end
+  end
 end

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_current_user
 
   def create
     @post = current_user.authored_posts.build(post_params)
