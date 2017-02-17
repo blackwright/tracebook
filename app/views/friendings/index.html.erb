@@ -1,0 +1,34 @@
+<div class="container">
+
+  <%= render partial: "shared/cover", :locals => { user: @user } %>
+
+  <main>
+    <!-- Friends Header -->
+      <div class="row">
+        <section class="box box-header header-title col-xs-12">
+          <header>
+            <h2>Friends</h2>
+          </header>
+        </section>
+      </div><!-- end row -->
+
+      <!-- Friends Body -->
+      <div class="row">
+        <section class="box padding-bottom box-body col-xs-12">
+          <div class="row">
+
+            <% if @friends.blank? %>
+              <p class="text-center margin-top padding-bottom">
+                Find people you may know by searching for their names!
+              </p>
+            <% else %>
+              <%= render partial: "friend", collection: @friends %>
+            <% end %>
+
+          </div><!-- end row -->
+        </section>
+      </div><!-- end row -->
+
+  </main>
+
+</div>
