@@ -16,10 +16,11 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
+  timeout: 5000
 
 development:
   <<: *default
@@ -81,5 +82,3 @@ test:
 production:
   <<: *default
   database: tracebook_production
-  username: tracebook
-  password: <%= ENV['TRACEBOOK_DATABASE_PASSWORD'] %>
