@@ -21,6 +21,10 @@ class PhotosController < ApplicationController
     @photo = Photo.find_by_id(params[:id])
   end
 
+  def index
+    @photos = @user.photos
+  end
+
   private
 
     def set_user
