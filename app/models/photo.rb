@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Photo < ApplicationRecord
 
   belongs_to :author, :class_name => "User",
@@ -17,4 +19,10 @@ class Photo < ApplicationRecord
   
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+
+
+  def image_from_url(url)
+    self.image = open(url)
+  end
 end
