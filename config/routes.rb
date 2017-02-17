@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   resources :users, except: [:edit, :update] do
     resource :profile, only: [:show, :edit, :update]
-    resources :posts, only: [:create, :destroy]
+    resources :posts, only: [:create, :destroy] do
+      resources :comments, only: [:create, :destroy],
+                           :defaults => { commentable: "Post" }
+    end
   end
 
   resources :likes, only: [:create, :destroy]
