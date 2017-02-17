@@ -20,6 +20,9 @@ class User < ApplicationRecord
   has_many :users_friended_by, :through => :received_friendings,
                                :source => :friend_initiator
 
+  has_many :photos, -> { order "created_at desc" },
+                    :dependent => :destroy
+
   has_secure_password
 
   
