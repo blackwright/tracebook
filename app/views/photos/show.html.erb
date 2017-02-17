@@ -1,0 +1,77 @@
+<div class="container">
+
+  <%= render partial: "shared/cover", :locals => { user: @user } %>
+
+  <main id="photos">
+    <!-- Photo Header -->
+    <div class="box box-header header-title row">
+      <header>
+        <h2>Photo</h2>
+      </header>
+    </div><!-- end row -->
+
+    <div class="row box padding-bottom box-body">
+      <div class="padding-top col-xs-8">
+        <%= image_tag @photo.image.url, class: "box" %>
+        
+        <%= render partial: "current_user_links",
+                            :locals => { user: @user,
+                                         photo: @photo } %>
+      </div>
+
+      <div class="col-xs-4">
+
+        <!-- Author -->
+        <div class="col-xs-12 box box-post padding-top padding-bottom">
+
+          <div class="author-img">
+            <img src="/assets/potter.jpg">
+          </div>
+          <div class="author-details">
+            <%= link_to @photo.author.full_name %>
+            <%= time_tag @photo.created_at.to_date, date_to_string(@photo.created_at),
+                pubdate: true, class: "post-date" %>
+          </div>
+        </div><!-- end author -->
+
+        <!-- Footer -->
+        <div class="box box-footer padding-top padding-bottom col-xs-12">
+          <!-- Like/Comment/Delete Links -->
+          <div class="post-links">
+
+            <%= render_like_link(@photo) %>
+
+            <% if current_user == @photo.author %>
+              <%= link_to "Delete", user_photo_path(@photo.author, @photo),
+                                    :method => :delete,
+                                    :data => { confirm: "Delete photo?" },
+                                    class: "pull-right" %>
+            <% end %>
+          </div><!-- end links -->
+
+          <!-- Feedback -->
+          <div class="post-feedback padding-top">
+            <span><%= post_feedback(@photo) %></span>
+          </div><!-- end feedback -->
+
+          <div class="divider"></div>
+
+          <!-- Comments -->
+          <div class="post-comments">
+
+            <%= render @photo.comments %>
+
+          </div><!-- end comments -->
+
+          <%= render partial: "comments/comment_form",
+                              :locals => { commentable: @photo } %>
+
+        </div><!-- end footer box -->
+
+      </div>
+
+    </div><!-- end row -->
+  </div>
+
+  </main>
+</div>
