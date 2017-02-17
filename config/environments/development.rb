@@ -1,6 +1,20 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Amazon S3 via Paperclip
+  Paperclip.options[:command_path] = '/usr/bin/convert'
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :s3_host_name => Rails.application.secrets.s3_host_name,
+      :s3_region => Rails.application.secrets.aws_region,
+      :bucket => Rails.application.secrets.s3_bucket_name,
+      :access_key_id => Rails.application.secrets.aws_access_key_id,
+      :secret_access_key => Rails.application.secrets.aws_secret_access_key
+    }
+  }
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
