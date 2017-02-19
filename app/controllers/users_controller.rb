@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:feed]
+  before_action :require_current_user, only: [:feed]
   skip_before_action :require_login, only: [:new, :create]
   before_action :require_logout, only: [:new, :create]
   before_action :disable_nav, only: [:new]
@@ -50,5 +52,12 @@ class UsersController < ApplicationController
 
     def disable_nav
       @disable_nav = true
+    end
+
+    def require_current_user
+      unless params[:user_id] == current_user.id.to_s
+        flash[:error] = "You're not authorized for that action."
+        redirect_back(fallback_location: user_path(current_user))
+      end
     end
 end
