@@ -28,6 +28,11 @@ class UsersController < ApplicationController
     @new_post = Post.new if current_user == @user
   end
 
+  def newsfeed
+    @new_post = Post.new
+    @feed_posts = @user.feed_posts
+  end
+
   def index
     @search_results = User.includes(:profile).search(params[:search])
   end

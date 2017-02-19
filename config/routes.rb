@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   resources :users, except: [:edit, :update] do
+    get 'newsfeed' => 'users#newsfeed'
     get 'friends' => 'friendings#index'
     resource :profile, only: [:show, :edit, :update]
     resources :posts, only: [:create, :destroy] do
