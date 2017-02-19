@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <div class="box item-box">
+    <a href="#">
+      <div class="search-img">
+        <%= link_to user_path(search_result) do %>
+          <%= image_tag search_result.avatar_url %>
+        <% end %>
+      </div>
+    </a>
+    <div class="search-details">
+      <%= link_to search_result.full_name, user_path(search_result) %>
+      <div class="search-friend-count">
+        <small>
+          <%= pluralize(search_result.friended_users.count, 'friend') %>
+        </small>
+      </div>
+      <div class="search-bio">
+        Currently lives in <%= search_result.profile.location %>
+      </div>
+      <div class="search-bio">
+        From <%= search_result.profile.hometown %>
+      </div>
+      <div class="search-bio">
+        Born on <%= date_to_string(search_result.profile.birthday) %>
+      </div>
+    </div>
+    <%= render_friend_or_unfriend(search_result) %>
+  </div>
+</div>
