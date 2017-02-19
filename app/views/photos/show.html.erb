@@ -28,7 +28,7 @@
             <img src="/assets/potter.jpg">
           </div>
           <div class="author-details">
-            <%= link_to @photo.author.full_name %>
+            <%= link_to @photo.author.full_name, @photo.author %>
             <%= time_tag @photo.created_at.to_date, date_to_string(@photo.created_at),
                 pubdate: true, class: "post-date" %>
           </div>

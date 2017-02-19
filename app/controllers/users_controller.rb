@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:feed]
-  before_action :require_current_user, only: [:feed]
+  before_action :set_user, only: [:newsfeed]
+  before_action :require_current_user, only: [:newsfeed]
   skip_before_action :require_login, only: [:new, :create]
   before_action :require_logout, only: [:new, :create]
   before_action :disable_nav, only: [:new]
