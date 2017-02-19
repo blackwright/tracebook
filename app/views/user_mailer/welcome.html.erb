@@ -1,0 +1,7 @@
+<h1>Welcome to Tracebook</h1>
+
+<p>Hi <%= @user.first_name %>, thanks for signing up!</p>
+
+<p>
+  View your account at <%= link_to "#{user_url(@user)}", user_url(@user) %>
+</p>
