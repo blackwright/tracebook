@@ -1,3 +1,120 @@
-// Place all the styles related to the photos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.photo {
+  text-align: center;
+  
+  img {
+    height: 220px;
+  }
+
+  .box-photo-details {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    min-width: 100%;
+    height: 40px;
+    background-color: rgba(51, 122, 183, 0.75);
+    text-align: center;
+
+    .photo-details {
+      color: white;
+      font-size: 13px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &:hover .box-photo-details {
+    display: block;
+  }
+}
+
+.side-photo {
+  margin-bottom: 15px;
+  height: 100px;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    height: 100px;
+  }
+}
+
+#photos {
+
+  .box-link {
+    margin-top: 10px;
+  }
+
+  .friend-caption {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 16px;
+    overflow: hidden;
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
+
+  }
+
+  .author-img {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border: 1px solid #333;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .author-details {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .post-date {
+      color: #777;
+      font-size: 13px;
+      display: block;
+    }
+
+  .inline {
+    display: inline;
+    margin-left: 3px;
+  }
+
+  .post-feedback {
+    font-size: 13px;
+    color: #666;
+  }
+
+  .divider {
+    margin-top: 15px;
+    height: 1px;
+    border-top: 1px solid #ccc;
+  }
+
+  .comment {
+    padding-top: 15px;
+  }
+
+  .comment-body {
+    width: calc(100% - 85px);
+    margin-left: 15px;
+
+    p {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  }
+
+  #write-comment textarea {
+    margin: 15px 0 10px;
+  }
+}
