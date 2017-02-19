@@ -60,13 +60,13 @@ class User < ApplicationRecord
     save!
   end
 
-  def full_name
-    "#{first_name} #{last_name}"
+  def self.send_welcome_email(user_id)
+    user = User.find_by_id(user_id)
+    UserMailer.welcome(user).deliver
   end
 
-  def destroy_friendship(ex_friend)
-    friended_users.delete(ex_friend) &&
-    ex_friend.friended_users.delete(self)
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
   def friends?(user)
@@ -75,6 +75,11 @@ class User < ApplicationRecord
 
   def all_friends
     friended_users + users_friended_by
+  end
+
+  def destroy_friendship(ex_friend)
+    friended_users.delete(ex_friend) &&
+    ex_friend.friended_users.delete(self)
   end
 
   def side_friends

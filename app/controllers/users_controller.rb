@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
+      User.send_welcome_email(@user.id)
       flash[:success] = "Welcome to Danebook!"
       redirect_to user_profile_path(@user)
     else
