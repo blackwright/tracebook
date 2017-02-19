@@ -85,13 +85,22 @@ class User < ApplicationRecord
     result
   end
 
+  def side_photos
+    photos.limit(6)
+  end
+
   def self.search(query)
     where("first_name ILIKE ? OR last_name ILIKE ?",
           "#{query}%", "#{query}%") unless query.blank?
   end
 
-  def side_photos
-    photos.limit(6)
+  def feed_posts
+    Post.includes(:author,
+                  :likes => :liker,
+                  :comments => [:author, :likes => :liker])
+        .where(:user_id => self.all_friends.pluck(:id) << self.id)
+        .order(:created_at => :desc)
+        .limit(10)
   end
 
   def avatar_url
