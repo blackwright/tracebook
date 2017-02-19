@@ -1,0 +1,44 @@
+<div class="container">
+
+  <%= render partial: "shared/cover", :locals => { user: @user } %>
+
+  <main id="timeline">
+    <div class="row">
+
+      <!-- Right Column -->
+      <div class="col-sm-7 col-sm-push-5 col-md-8 col-md-push-4">
+        <!-- Create Post -->
+        <% if @new_post %>
+          <%= render partial: "posts/new",
+              :locals => { user: @user, post: @new_post } %>
+        <% end %>
+        <!-- Feed Posts -->
+        <%= render @feed_posts %>
+      </div>
+
+      <!-- Left Column -->
+      <div class="col-sm-5 col-sm-pull-7 col-md-4 col-md-pull-8 col-padding">
+        <div class="row">
+          <div class="box box-header header-title">
+            <h4>Activity</h4>
+          </div>
+          <div class="box box-body padding-top padding-bottom col-xs-12">
+            <div class="row">
+
+            <% if @feed_posts.blank? %>
+              <p class="text-center padding-top padding-bottom">
+                No recent activity.
+              </p>
+            <% else %>
+              <%= render partial: "feed_activity", collection: @feed_posts,
+                                                   :as => :post %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </main>
+
+</div>
