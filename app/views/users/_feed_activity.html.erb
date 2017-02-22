@@ -1,11 +1,13 @@
 <div class="row">
-  <%= link_to user_path(post.author) do %>
+  <%= link_to user_path(post.author), { class: "activity-link" } do %>
   <div class="col-xs-12">
     <div class="author-img">
       <%= image_tag post.author.avatar_url %>
     </div>
     <div class="author-details">
-      <%= post.author.full_name %>
+      <div class="author-name">
+        <%= post.author.full_name %>
+      </div>
       <%= time_tag post.created_at.to_date, posted_on(post.created_at),
           pubdate: true, class: "post-date" %>
     </div>

@@ -1,5 +1,5 @@
 <%= form_for [commentable.author, commentable, commentable.comments.build],
-    id: "write-comment" do |f| %>
+    :html => { id: "write-comment", class: "padding-top" } do |f| %>
   <%= f.text_area :body, placeholder: "Write a comment", rows: 3 %>
   <%= link_to "Cancel" %>
   <%= f.submit "Comment", class: "btn btn-md btn-primary pull-right" %>
