@@ -52,7 +52,7 @@ h3 {
 */
 
 #top-nav {
-  background-color: #337ab7;
+  background-color: #6C7A89;
   margin-bottom: 0;
 
   a {
@@ -316,7 +316,7 @@ h3 {
   position: relative;
   height: 85px;
   width: 100%;
-  background-color: #337ab7;
+  background-color: #6C7A89;
 }
 
 .login-header-content {
@@ -353,14 +353,6 @@ h3 {
   label {
     margin-bottom: 0;
   }
-
-  a {
-  color: #9cb4d8;
-
-    &:hover {
-      color: white;
-    }
-  }
 }
 
 .login-form input:not([type='checkbox']) {
@@ -371,18 +363,18 @@ h3 {
 }
 
 .login-form input[type="submit"] {
-  color: #fff;
+  color: #333;
   cursor: pointer;
   font-weight: 600;
   width: 50px;
-  background-color: #4267b2;
-  border: 1px solid #29487d;
+  background-color: #95A5A6;
+  border: 1px solid #333;
   border-radius: 4px;
 }
 
 .login-form input[type="submit"]:hover,
 .login-form input[type="submit"]:active {
-  background-color: #365899;
+  background-color: #ECECEC;
 }
 
 
