@@ -5,7 +5,7 @@ module UsersHelper
       link_to "Edit Profile", edit_user_profile_path(current_user),
                               id: "profile-link", class: "right"
     else
-      if current_user.friends?(user)
+      if current_user.friends_with?(user)
         link_to "Unfriend", friending_path(user),
                             :method => :delete,
                             id: "profile-link",

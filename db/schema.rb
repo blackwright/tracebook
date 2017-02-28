@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 20170217193204) do
   end
 
   create_table "friendings", force: :cascade do |t|
-    t.integer  "friender_id",             null: false
-    t.integer  "friended_id",             null: false
-    t.integer  "status",      default: 0, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "friender_id",                 null: false
+    t.integer  "friended_id",                 null: false
+    t.boolean  "accepted",    default: false, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["friended_id"], name: "index_friendings_on_friended_id", using: :btree
     t.index ["friender_id"], name: "index_friendings_on_friender_id", using: :btree
   end

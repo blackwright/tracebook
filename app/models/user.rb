@@ -15,13 +15,22 @@ class User < ApplicationRecord
   has_many :initiated_friendings, :dependent => :destroy,
                                   :class_name => "Friending",
                                   :foreign_key => :friender_id
-  has_many :friended_users, :through => :initiated_friendings,
+  has_many :friended_users, -> { where friendings: { accepted: true } },
+                            :through => :initiated_friendings,
                             :source => :friend_recipient
+  has_many :requested_users, -> { where friendings: { accepted: false } },
+                             :through => :initiated_friendings,
+                             :source => :friend_recipient
+
   has_many :received_friendings, :dependent => :destroy,
                                  :class_name => "Friending",
                                  :foreign_key => :friended_id
-  has_many :users_friended_by, :through => :received_friendings,
+  has_many :users_friended_by, -> { where friendings: { accepted: true } },
+                               :through => :received_friendings,
                                :source => :friend_initiator
+  has_many :users_requested_by, -> { where friendings: { accepted: false } },
+                                :through => :received_friendings
+                                :source => :friend_initiator
 
   has_many :photos, -> { order "created_at desc" },
                     :dependent => :destroy
@@ -69,12 +78,12 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def friends?(user)
+  def friends_with?(user)
     friended_users.include?(user) || users_friended_by.include?(user)
   end
 
   def all_friends
-    friended_users + users_friended_by
+    friended_users | users_friended_by
   end
 
   def destroy_friendship(ex_friend)
