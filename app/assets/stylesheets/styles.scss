@@ -67,6 +67,7 @@ h4 {
 }
 
 a {
+  cursor: pointer;
   color: $bluewood;
 
   &:hover {
@@ -385,30 +386,97 @@ a {
   }
 
   .nav-icon {
-    margin-right: 5px;
+    margin: 0 5px;
   }
 
-  li {
-    a {
-      &:hover {
-        background-color: $dark-madison;
-      }
-      &:focus {
-        background-color: $dark-madison;
-      }
-      &:active {
-        background-color: $dark-madison;
-      }
+  li.nav-element a {
+    &:hover {
+      background-color: $dark-madison;
+    }
+
+    &:focus {
+      background-color: $dark-madison;
+    }
+
+    &:active {
+      background-color: $dark-madison;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .navbar-header {
+      padding-left: 15px;
     }
   }
 
   @media screen and (min-width: 992px) {
     #search {
-      width: 400px;
+      width: 350px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    #search {
+      width: 150px;
     }
   }
 }
 
+#notifications {
+
+  .dropdown-toggle {
+    background-color: $thunderbird;
+
+    &:hover {
+      background-color: $thunderbird;
+    }
+
+    &:focus {
+      background-color: $thunderbird;
+    }
+
+    &:active {
+      background-color: #96281B;
+    }
+  }
+
+  .request-image {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .request-name {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .request-buttons {
+
+    .btn {
+      vertical-align: middle;
+      padding: 2px 4px;
+      margin-left: 3px;
+    }
+  }
+
+  .dropdown-menu {
+    color: white;
+    min-width: 300px;
+    background-color: $bluewood;
+    padding: 5px 5px;
+
+    li {
+      padding: 6px 5px;
+    }
+  }
+}
 
 
 /* Cover */
@@ -422,12 +490,10 @@ a {
     height: 300px;
     overflow: hidden;
     border: 1px solid #999;
+    object-fit: cover;
 
     img {
-      position: absolute;
-      min-width: 100%;
-      min-height: 375px;
-      top: -150px;
+      width: 100%;
     }
   }
 
@@ -479,7 +545,6 @@ a {
     li {
       display: inline-block;
       cursor: pointer;
-/*      border-left: 1px solid #333;*/
 
       .active {
         background-color: $madison;
@@ -493,6 +558,7 @@ a {
           background-color: $madison;
         }
       }
+    }
 
     a {
       display: inline-block;
@@ -504,22 +570,11 @@ a {
       color: $dark-madison;
       margin-left: 5px;
     }
-
-/*  &:last-child {
-      border-right: 1px solid #333;
-    }*/
   }
-}
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     ul li {
       display: block;
-/*      border-bottom: 1px solid #333;*/
-
-/*      &:last-child {
-        border-right: 0;
-        border-bottom: 0;
-      }*/
     }
 
     #profile-link {
