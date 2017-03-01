@@ -29,7 +29,7 @@ class User < ApplicationRecord
                                :through => :received_friendings,
                                :source => :friend_initiator
   has_many :users_requested_by, -> { where friendings: { accepted: false } },
-                                :through => :received_friendings
+                                :through => :received_friendings,
                                 :source => :friend_initiator
 
   has_many :photos, -> { order "created_at desc" },
@@ -84,6 +84,10 @@ class User < ApplicationRecord
 
   def all_friends
     friended_users | users_friended_by
+  end
+
+  def pending_requests
+    received_friendings.where(:accepted => false)
   end
 
   def destroy_friendship(ex_friend)
