@@ -1,6 +1,8 @@
 # [tracebook](http://tracebook.herokuapp.com/)
 
-A social network clone built with Ruby on Rails. View it on [Heroku](http://tracebook.herokuapp.com/). Explore the app using one of its prepopulated accounts, or with an empty guest account:
+A social network clone built with Ruby on Rails. View it on [Heroku](http://tracebook.herokuapp.com/).
+
+Explore the app using one of its prepopulated accounts, or with an empty guest account:
 
 **Prepopulated account logins:**
 
