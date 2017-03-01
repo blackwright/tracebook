@@ -23,6 +23,9 @@ module UsersHelper
     if current_user.all_friends.include?(user)
       link_to "Unfriend", friending_path(user),
                           :method => :delete, class: "btn btn-default right"
+    elsif current_user.requested_users.include?(user)
+      content_tag(:div, "Request Sent",
+                        class: "btn btn-default disabled right")
     else
       link_to "+ Friend", friendings_path(:id => user.id),
                         :method => :post, class: "btn btn-primary right"
