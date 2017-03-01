@@ -6,13 +6,11 @@ A social network clone built with Ruby on Rails.
 
 Explore the app using one of its prepopulated accounts, or with an empty guest account:
 
-**Prepopulated account logins:**
-: user1@email.com (up through user20)
-: password
+**Prepopulated account logins:** user1@email.com (works up through user20) / password
 
-**Guest Account:**
-: guest
-: password
+**Guest Account:** guest / password
+
+## Features
 
 ### Finding and Adding Friends
 
