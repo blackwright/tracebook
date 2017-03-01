@@ -1,11 +1,11 @@
 <% unless friend == current_user %>
   <div class="col-md-6">
     <div class="box item-box">
-      <a href="#">
+      <%= link_to user_path(friend) do %>
         <div class="friend-img">
           <%= image_tag friend.avatar_url %>
         </div>
-      </a>
+      <% end %>
       <div class="friend-details">
         <%= link_to friend.full_name, user_path(friend) %>
         <small><%= pluralize(friend.all_friends.count, 'friend') %></small>
