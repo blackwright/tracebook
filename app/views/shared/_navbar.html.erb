@@ -32,20 +32,46 @@
         </div>
       <% end %><!-- end search bar -->
 
-      <!-- User & Sign Out Links -->
+      <!-- Requests, Username, and Sign Out Links -->
       <ul class="nav navbar-nav navbar-right">
+
         <% if current_user.pending_requests.any? %>
-          <li>
-            
+          <li id="notifications" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= pluralize(current_user.pending_requests.count, "Request") %>
+            </a>
+            <ul class="dropdown-menu">
+              <% current_user.pending_requests.each do |request| %>
+                <li>
+                  <div>
+                    <div class="request-image">
+                      <%= link_to request.friend_initiator do %>
+                        <%= image_tag request.friend_initiator.avatar_url %>
+                      <% end %>
+                    </div>
+                    <div class="request-name">
+                      <%= link_to request.friend_initiator do %>
+                        <%= request.friend_initiator.full_name %>
+                      <% end %>
+                    </div>
+                    <div class="request-buttons pull-right">
+                      <%= link_to "Accept", friending_path(request.id), :method => :put, class: "btn btn-success" %>
+                      <%= link_to "Decline", friending_path(request.friend_initiator.id), :method => :delete, class: "btn btn-danger" %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
           </li>
         <% end %>
-        <li>
+
+        <li class="nav-element">
           <%= link_to user_newsfeed_path(current_user) do %>
             <span class="glyphicon glyphicon-user nav-icon"></span>
             <%= current_user.full_name %>
           <% end %>
         </li>
-        <li>
+        <li class="nav-element">
           <%= link_to session_path, :method => :delete do %>
             <span class="glyphicon glyphicon-log-out nav-icon"></span>
             Sign Out
