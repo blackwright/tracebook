@@ -1,25 +1,38 @@
 class FriendingsController < ApplicationController
 
   def create
-    if new_friend = User.find_by_id(params[:id])
-      current_user.friended_users << new_friend
-      flash[:success] = "You're now friends with #{new_friend.full_name}"
-      redirect_back(fallback_location: user_path(new_friend))
+    friending = current_user.initiated_friendings
+                            .build(:friender_id => current_user.id,
+                                   :friended_id => params[:id])
+    if friending.save
+      flash[:success] = "You've sent a request to #{new_friend.full_name}"
+      redirect_back(fallback_location: user_path(requested_friend))
     else
-      flash[:error] = "User not found"
-      redirect_back(fallback_location: user_path(current_user))
+      flash[:error] = "Couldn't send friend request"
+      redirect_back(fallback_location: current_user)
+    end
+  end
+
+  def update
+    friending = Friending.find_by_id(params[:id])
+    friending.update(:accepted => true)
+    if friending.save
+      flash[:success] = "Friend request accepted"
+      redirect_back(fallback_location: current_user)
+    else
+      flash[:error] = "Couldn't confirm friend request"
+      redirect_back(fallback_location: current_user)
     end
   end
 
   def destroy
     if ex_friend = User.find_by_id(params[:id])
       current_user.destroy_friendship(ex_friend)
-
-      flash[:success] = "You've unfriended #{ex_friend.full_name}"
-      redirect_back(fallback_location: user_path(current_user))
+      flash[:success] = "Friend removed"
+      redirect_back(fallback_location: current_user)
     else
       flash[:error] = "User not found"
-      redirect_back(fallback_location: user_path(current_user))
+      redirect_back(fallback_location: current_user)
     end
   end
 
