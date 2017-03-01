@@ -1,12 +1,13 @@
 class FriendingsController < ApplicationController
+  before_action :require_login
 
   def create
     friending = current_user.initiated_friendings
                             .build(:friender_id => current_user.id,
                                    :friended_id => params[:id])
     if friending.save
-      flash[:success] = "You've sent a request to #{new_friend.full_name}"
-      redirect_back(fallback_location: user_path(requested_friend))
+      flash[:success] = "Friend request sent"
+      redirect_back(fallback_location: current_user)
     else
       flash[:error] = "Couldn't send friend request"
       redirect_back(fallback_location: current_user)
