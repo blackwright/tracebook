@@ -20,7 +20,6 @@
 
       <!-- Search Bar -->
       <%= form_tag users_path, :method => :get,
-                               :enforce_utf8 => false,
                                class: "navbar-form navbar-left" do %>
         <div class="input-group">
           <%= search_field_tag :search, nil, class: "form-control",
@@ -35,6 +34,11 @@
 
       <!-- User & Sign Out Links -->
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user.pending_requests.any? %>
+          <li>
+            
+          </li>
+        <% end %>
         <li>
           <%= link_to user_newsfeed_path(current_user) do %>
             <span class="glyphicon glyphicon-user nav-icon"></span>

@@ -50,7 +50,7 @@ h4 {
 }
 
 .btn-primary {
-  background-color: $madison;
+  background-color: $dark-madison;
   border: 0;
 
   &:hover {
@@ -204,7 +204,7 @@ a {
     font-weight: 600;
     display: block;
     color: #fff;
-    background: #67a153;
+    background: $madison;
     background: -webkit-linear-gradient(#73b25e, #578843);
     background: -o-linear-gradient(#73b25e, #578843);
     background: -moz-linear-gradient(#73b25e, #578843);
@@ -367,14 +367,16 @@ a {
   }
 
   .navbar-toggle {
+    background-color: $dark-madison;
+
     &:hover {
-      background-color: #337ab7;
+      background-color: $dark-madison;
     }
     &:focus {
-      background-color: #337ab7;
+      background-color: $dark-madison;
     }
     &:active {
-      background-color: #26679e;
+      background-color: $dark-madison;
     }
   }
 
@@ -468,23 +470,6 @@ a {
   position: relative;
   z-index: 1;
 
-  .nav {
-    a, li {
-      &:hover {
-        color: white;
-        background-color: $madison;
-      }
-    }
-
-    .active {
-      background-color: $madison;
-
-      a {
-        color: white;
-      }
-    }
-  }
-
   ul {
     padding-left: 160px;
     height: 100%;
@@ -496,22 +481,35 @@ a {
       cursor: pointer;
 /*      border-left: 1px solid #333;*/
 
-      a {
-        display: inline-block;
-        font-size: 16px;
-        padding: 10px 20px;
+      .active {
+        background-color: $madison;
       }
 
-      small {
-        color: $dark-madison;
-        margin-left: 5px;
+      &:hover {
+        background-color: $madison;
+
+        a {
+          color: white;
+          background-color: $madison;
+        }
       }
 
-/*      &:last-child {
-        border-right: 1px solid #333;
-      }*/
+    a {
+      display: inline-block;
+      font-size: 16px;
+      padding: 10px 20px;
     }
+
+    small {
+      color: $dark-madison;
+      margin-left: 5px;
+    }
+
+/*  &:last-child {
+      border-right: 1px solid #333;
+    }*/
   }
+}
 
   @media screen and (max-width: 768px) {
     ul li {
