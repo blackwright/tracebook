@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   end
 
   resources :likes, only: [:create, :destroy]
-  resources :friendings, only: [:create, :destroy]
+  resources :friendings, only: [:create, :update, :destroy]
 end
