@@ -4,6 +4,16 @@ A social network clone built with Ruby on Rails.
 
 [View on Heroku](http://tracebook.herokuapp.com/)
 
+Explore the app using one of its prepopulated accounts, or with an empty guest account:
+
+**Prepopulated account logins:**
+: user1@email.com (up through user20)
+: password
+
+**Guest Account:**
+: guest
+: password
+
 ### Finding and Adding Friends
 
 - Friends can be searched for by name.
@@ -26,4 +36,4 @@ A social network clone built with Ruby on Rails.
 
 ### Mailer
 
-- New users are automatically greeted with a welcome email.
+- Newly signed-up users are automatically greeted with a welcome email.
