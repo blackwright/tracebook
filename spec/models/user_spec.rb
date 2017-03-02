@@ -46,4 +46,20 @@ RSpec.describe User, :type => :model do
     user = build(:user, :password => password)
     expect(user).not_to be_valid
   end
+
+  it "responds to profile association" do
+    expect(user).to respond_to(:profile)
+  end
+
+  it "responds to authored_posts association" do
+    expect(user).to respond_to(:authored_posts)
+  end
+
+  it "responds to photos association" do
+    expect(user).to respond_to(:photos)
+  end
+
+  it "responds to likes association" do
+    expect(user).to respond_to(:likes)
+  end
 end
