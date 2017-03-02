@@ -130,6 +130,11 @@ a {
     padding-right: 10px;
   }
 
+  .feature img {
+    height: 45px;
+    object-fit: scale-down;
+  }
+
   .feature .smaller {
     font-weight: 400;
     color: #666;
