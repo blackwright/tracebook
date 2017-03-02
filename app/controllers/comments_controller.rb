@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_commentable
   before_action :require_current_user, only: [:destroy]
+  before_action :require_friend, only: [:create]
 
   def create
     @comment = @commentable.comments.build(comment_params)
@@ -40,6 +41,15 @@ class CommentsController < ApplicationController
       end
     end
 
+    def set_commentable
+      @commentable = extract_commentable
+      redirect_back(fallback_location: current_user) unless @commentable
+    end
+
+    def extract_commentable
+      params[:commentable].classify.constantize.find_by_id(commentable_id)
+    end
+
     def require_current_user
       @comment = Comment.find_by_id(params[:id])
       unless current_user == @comment.author
@@ -48,12 +58,10 @@ class CommentsController < ApplicationController
       end
     end
 
-    def set_commentable
-      @commentable = extract_commentable
-      redirect_back(fallback_location: current_user) unless @commentable
-    end
-
-    def extract_commentable
-      params[:commentable].classify.constantize.find_by_id(commentable_id)
+    def require_friend
+      unless current_user.all_friends.include?(@commentable.author)
+        flash[:error] = "You must be friends to leave a comment"
+        redirect_back(fallback_location: current_user)
+      end
     end
 end
