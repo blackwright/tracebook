@@ -12,4 +12,8 @@ RSpec.describe Post, :type => :model do
     post = build(:post, :body => nil)
     expect(post).not_to be_valid
   end
+
+  it "responds to author association" do
+    expect(post).to respond_to(:author)
+  end
 end
