@@ -6,7 +6,7 @@ class Photo < ApplicationRecord
                       :foreign_key => :user_id
 
   has_attached_file :image, :styles => { medium: "300x300", thumb: "100x100" },
-                            :default_url => "https://s3.amazonaws.com/blackwright-danebook/missing/:style/missing.png"
+                            :default_url => "https://s3.amazonaws.com/blackwright-tracebook/missing/:style/missing.png"
 
   has_many :likes, :dependent => :destroy,
                    :as => :likeable

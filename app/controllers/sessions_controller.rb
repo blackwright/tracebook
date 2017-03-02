@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       else
         sign_in(@user)
       end
-      flash[:success] = "Welcome to Danebook!"
+      flash[:success] = "Welcome to Tracebook!"
       redirect_to current_user
     else
       flash[:error] = "We couldn't sign you in."

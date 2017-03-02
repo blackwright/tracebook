@@ -52,8 +52,8 @@ class User < ApplicationRecord
 
 
 
-  MISSING_AVATAR_URL = "https://s3.amazonaws.com/blackwright-danebook/missing/medium/missing.png"
-  MISSING_COVER_URL = "https://s3.amazonaws.com/blackwright-danebook/missing/medium/missing.png"
+  MISSING_AVATAR_URL = "https://s3.amazonaws.com/blackwright-tracebook/missing/medium/missing.png"
+  MISSING_COVER_URL = "https://s3.amazonaws.com/blackwright-tracebook/missing/medium/missing.png"
 
 
 

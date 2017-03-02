@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in(@user)
       User.send_welcome_email(@user.id)
-      flash[:success] = "Welcome to Danebook!"
+      flash[:success] = "Welcome to Tracebook!"
       redirect_to user_profile_path(@user)
     else
       flash.now[:error] = "Couldn't create user."
