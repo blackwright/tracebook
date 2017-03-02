@@ -658,6 +658,15 @@ a {
   background-color: #6C7A89;
 }
 
+.login-logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 45px;
+  height: 45px;
+  position: relative;
+  margin-right: 10px;
+}
+
 .login-header-content {
   color: #fff;
   position: absolute;
@@ -670,8 +679,9 @@ a {
 }
 
 .login-header-content h1 {
+  display: inline-block;
+  vertical-align: middle;
   font-weight: 600;
-  padding-bottom: 8px;
 }
 
 .login-form-container {
