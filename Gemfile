@@ -44,12 +44,14 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.5.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 9.0.6', platform: :mri
   gem 'letter_opener', '~> 1.4.1'
 end
 
 group :development do
+  gem 'guard-rspec', '~> 4.7.3', require: false
   gem 'better_errors', '~> 2.1.1'
   gem 'binding_of_caller', '~> 0.7.2'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
