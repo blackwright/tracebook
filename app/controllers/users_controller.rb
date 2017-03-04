@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Tracebook!"
       redirect_to user_profile_path(@user)
     else
-      flash.now[:error] = "Couldn't create user."
+      flash.now[:error] = "Couldn't create account."
       render :new
     end
   end

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:success] = "Comment posted!"
+      flash[:success] = "Comment posted."
     else
       flash[:error] = "Couldn't post comment."
     end
@@ -17,9 +17,9 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @commentable.comments.find_by_id(params[:id])
     if @comment.destroy
-      flash[:success] = "Comment deleted!"
+      flash[:success] = "Comment deleted."
     else
-      flash[:error] = "Couldn't delete comment"
+      flash[:error] = "Couldn't delete comment."
     end
     redirect_back(fallback_location: current_user)
   end
@@ -53,14 +53,14 @@ class CommentsController < ApplicationController
     def require_current_user
       @comment = Comment.find_by_id(params[:id])
       unless current_user == @comment.author
-        flash[:error] = "You're not authorized for that action"
+        flash[:error] = "You're not authorized for that action."
         redirect_back(fallback_location: current_user)
       end
     end
 
     def require_friend
       unless current_user.all_friends.include?(@commentable.author)
-        flash[:error] = "You must be friends to leave a comment"
+        flash[:error] = "You must be friends to leave a comment."
         redirect_back(fallback_location: current_user)
       end
     end

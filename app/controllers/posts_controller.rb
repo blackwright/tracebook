@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.authored_posts.build(post_params)
     if @post.save
-      flash[:success] = "Post created!"
+      flash[:success] = "Post has been created."
     else
-      flash[:error] = "Couldn't create post"
+      flash[:error] = "Couldn't create post."
     end
     redirect_back(fallback_location: current_user)
   end
@@ -14,10 +14,10 @@ class PostsController < ApplicationController
   def destroy
     @post = current_user.authored_posts.find(params[:id])
     if @post.destroy
-      flash[:success] = "Post deleted!"
+      flash[:success] = "Post deleted."
       redirect_back(fallback_location: current_user)
     else
-      flash.now[:error] = "Couldn't delete post"
+      flash.now[:error] = "Couldn't delete post."
       render :index
     end
   end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
     def require_current_user
       unless params[:user_id] == current_user.id.to_s
-        flash[:error] = "You're not authorized for that action"
+        flash[:error] = "You're not authorized for that action."
         redirect_to root_url
       end
     end

@@ -9,10 +9,10 @@ class PhotosController < ApplicationController
   def create
     @photo = current_user.photos.build(photo_params)
     if @photo.save
-      flash[:success] = "Photo uploaded!"
+      flash[:success] = "Photo has been uploaded."
       redirect_to user_photo_path(@user, @photo)
     else
-      flash.now[:error] = "Couldn't upload photo"
+      flash.now[:error] = "Couldn't upload photo."
       render :new
     end
   end
@@ -21,10 +21,10 @@ class PhotosController < ApplicationController
     @photo = current_user.photos.build
     @photo.image_from_url(params[:url])
     if @photo.save
-      flash[:success] = "Photo created!"
+      flash[:success] = "Photo has been created."
       redirect_to user_photo_path(@user, @photo)
     else
-      flash.now[:error] = "Couldn't add photo"
+      flash.now[:error] = "Couldn't link to photo."
       render :new
     end
   end
@@ -49,7 +49,7 @@ class PhotosController < ApplicationController
 
     def require_current_user
       unless params[:user_id] == current_user.id.to_s
-        flash[:error] = "You're not authorized for that action"
+        flash[:error] = "You're not authorized for that action."
         redirect_back(fallback_location: current_user)
       end
     end

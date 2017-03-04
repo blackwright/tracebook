@@ -10,10 +10,10 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profile
     if @profile.update(profile_params)
-      flash[:success] = "Profile updated!"
+      flash[:success] = "Profile has been updated."
       redirect_to user_profile_path(@user)
     else
-      flash[:error] = "Couldn't update profile"
+      flash[:error] = "Couldn't update profile."
       render :edit
     end
   end
@@ -25,9 +25,9 @@ class ProfilesController < ApplicationController
   def set_avatar
     @profile = current_user.profile
     if @profile.update(profile_params)
-      flash[:success] = "Profile picture updated!"
+      flash[:success] = "Profile picture updated."
     else
-      flash[:error] = "Couldn't update profile picture. #{@profile.errors.full_messages}"
+      flash[:error] = "Couldn't update profile picture."
     end
     redirect_back(fallback_location: current_user)
   end
@@ -35,9 +35,9 @@ class ProfilesController < ApplicationController
   def set_cover
     @profile = current_user.profile
     if @profile.update(profile_params)
-      flash[:success] = "Cover photo updated!"
+      flash[:success] = "Cover photo updated."
     else
-      flash[:error] = "Couldn't updated cover photo"
+      flash[:error] = "Couldn't update cover photo."
     end
     redirect_back(fallback_location: current_user)
   end
@@ -56,7 +56,7 @@ class ProfilesController < ApplicationController
 
     def require_current_user
       unless params[:user_id] == current_user.id.to_s
-        flash[:error] = "You're not authorized for that action"
+        flash[:error] = "You're not authorized for that action."
         redirect_back(fallback_location: current_user)
       end
     end
@@ -64,7 +64,7 @@ class ProfilesController < ApplicationController
     def require_owned_photo
       @photo = Photo.find_by_id(params[:photo_id])
       unless current_user.photos.include?(@photo)
-        flash[:error] = "You're not authorized to use that photo"
+        flash[:error] = "You're not authorized to use that photo."
         redirect_back(fallback_location: current_user)
       end
     end
