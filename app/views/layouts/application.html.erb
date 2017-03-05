@@ -7,7 +7,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-controller="<%= controller_name %>">
 
     <% if signed_in_user? %>
       <%= render "shared/navbar" %>
@@ -15,7 +15,9 @@
       <%= render "shared/login" %>
     <% end %>
 
-    <%= render "shared/flash" %>
+    <div id="flash-wrapper">
+      <%= render "shared/flash" %>
+    </div>
     
     <%= yield %>
 

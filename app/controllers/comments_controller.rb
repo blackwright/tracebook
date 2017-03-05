@@ -8,10 +8,17 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "Comment posted."
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: current_user) }
+        format.js { render :create_success }
+      end
     else
       flash[:error] = "Couldn't post comment."
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: current_user) }
+        format.js { render partial: "shared/flash_ajax" }
+      end
     end
-    redirect_back(fallback_location: current_user)
   end
 
   def destroy
@@ -59,7 +66,8 @@ class CommentsController < ApplicationController
     end
 
     def require_friend
-      unless current_user.all_friends.include?(@commentable.author)
+      unless current_user == @commentable.author ||
+             current_user.all_friends.include?(@commentable.author)
         flash[:error] = "You must be friends to leave a comment."
         redirect_back(fallback_location: current_user)
       end

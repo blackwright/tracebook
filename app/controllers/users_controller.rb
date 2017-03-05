@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def newsfeed
     @new_post = Post.new
-    @feed_posts = @user.feed_posts
+    @posts = @user.feed_posts
   end
 
   def index

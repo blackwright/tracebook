@@ -13,7 +13,9 @@
               :locals => { user: @user, post: @new_post } %>
         <% end %>
         <!-- Posts -->
-        <%= render @posts %>
+        <div id="posts-container">
+          <%= render @posts %>
+        </div>
       </div>
 
       <!-- Left Column -->

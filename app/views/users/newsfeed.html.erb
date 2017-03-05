@@ -13,7 +13,9 @@
               :locals => { user: @user, post: @new_post } %>
         <% end %>
         <!-- Feed Posts -->
-        <%= render @feed_posts %>
+        <div id="posts-container">
+          <%= render @posts %>
+        </div>
       </div>
 
       <!-- Left Column -->
@@ -25,12 +27,12 @@
           <div class="box box-body padding-top padding-bottom col-xs-12">
             <div class="row">
 
-            <% if @feed_posts.blank? %>
+            <% if @posts.blank? %>
               <p class="text-center padding-top padding-bottom">
                 No recent activity.
               </p>
             <% else %>
-              <%= render partial: "feed_activity", collection: @feed_posts,
+              <%= render partial: "feed_activity", collection: @posts,
                                                    :as => :post %>
             <% end %>
 

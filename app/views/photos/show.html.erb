@@ -19,7 +19,7 @@
                                          photo: @photo } %>
       </div>
 
-      <div class="col-xs-4">
+      <div class="col-xs-4" data-id="<%= @photo.id %>" data-type="photo">
 
         <!-- Author -->
         <div class="col-xs-12 box box-post padding-top padding-bottom">
@@ -57,7 +57,7 @@
           <div class="divider"></div>
 
           <!-- Comments -->
-          <div class="post-comments">
+          <div class="comments-container">
 
             <%= render @photo.comments %>
 

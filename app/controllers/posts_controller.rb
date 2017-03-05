@@ -5,20 +5,33 @@ class PostsController < ApplicationController
     @post = current_user.authored_posts.build(post_params)
     if @post.save
       flash[:success] = "Post has been created."
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: current_user) }
+        format.js { render :create_success }
+      end
     else
       flash[:error] = "Couldn't create post."
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: current_user) }
+        format.js { render partial: "shared/flash_ajax" }
+      end
     end
-    redirect_back(fallback_location: current_user)
   end
 
   def destroy
     @post = current_user.authored_posts.find(params[:id])
     if @post.destroy
       flash[:success] = "Post deleted."
-      redirect_back(fallback_location: current_user)
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: current_user) }
+        format.js { render :destroy_success }
+      end
     else
       flash.now[:error] = "Couldn't delete post."
-      render :index
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: current_user) }
+        format.js { render partial: "shared/flash_ajax" }
+      end
     end
   end
 

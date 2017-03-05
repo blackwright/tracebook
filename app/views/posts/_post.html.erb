@@ -1,4 +1,4 @@
-<section class="row">
+<section class="row" data-id="<%= post.id %>" data-type="post">
   <div class="box box-post padding-top padding-bottom col-xs-12">
 
     <!-- Author -->
@@ -35,7 +35,8 @@
         <%= link_to "Delete", user_post_path(post.author, post),
                               :method => :delete,
                               :data => { confirm: "Delete post?" },
-                              class: "pull-right" %>
+                              class: "pull-right",
+                              remote: true %>
       <% end %>
     </div><!-- end links -->
 
@@ -47,7 +48,7 @@
     <div class="divider"></div>
 
     <!-- Comments -->
-    <div class="post-comments">
+    <div class="comments-container">
 
       <%= render post.comments %>
 
