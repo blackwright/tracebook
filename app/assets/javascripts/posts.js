@@ -11,7 +11,7 @@ TB.PostsModule = ( function() {
   };
 
   let _getPost = (id) => {
-    return $(`[data-id="${id}"][data-type="post"]`);
+    return $(`[data-id="${id}"][data-type="Post"]`);
   };
 
   let addPost = (post) => {

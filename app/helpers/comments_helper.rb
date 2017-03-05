@@ -30,7 +30,7 @@ module CommentsHelper
                                        comment.id)
       end
       content_tag(:span, class: "inline pull-right") do
-        link_to("Delete", path, :method => :delete)
+        link_to("Delete", path, :method => :delete, :remote => true)
       end
     end
   end

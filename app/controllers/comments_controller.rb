@@ -25,10 +25,17 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.find_by_id(params[:id])
     if @comment.destroy
       flash[:success] = "Comment deleted."
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: current_user) }
+        format.js { render :destroy_success }
+      end
     else
       flash[:error] = "Couldn't delete comment."
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: current_user) }
+        format.js { render partial: "shared/flash_ajax" }
+      end
     end
-    redirect_back(fallback_location: current_user)
   end
 
   private

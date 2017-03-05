@@ -19,7 +19,7 @@
                                          photo: @photo } %>
       </div>
 
-      <div class="col-xs-4" data-id="<%= @photo.id %>" data-type="photo">
+      <div class="col-xs-4" data-id="<%= @photo.id %>" data-type="Photo">
 
         <!-- Author -->
         <div class="col-xs-12 box box-post padding-top padding-bottom">
@@ -61,10 +61,10 @@
 
             <%= render @photo.comments %>
 
-          </div><!-- end comments -->
-
-          <%= render partial: "comments/comment_form",
+            <%= render partial: "comments/comment_form",
                               :locals => { commentable: @photo } %>
+
+          </div><!-- end comments -->
 
         </div><!-- end footer box -->
 

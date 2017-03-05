@@ -1,4 +1,4 @@
-<section class="row" data-id="<%= post.id %>" data-type="post">
+<section class="row" data-id="<%= post.id %>" data-type="Post">
   <div class="box box-post padding-top padding-bottom col-xs-12">
 
     <!-- Author -->
@@ -52,10 +52,10 @@
 
       <%= render post.comments %>
 
-    </div><!-- end comments -->
-
-    <%= render partial: "comments/comment_form",
+      <%= render partial: "comments/comment_form",
                         :locals => { commentable: post } %>
+      
+    </div><!-- end comments -->
 
   </div><!-- end footer box -->
 </section>
