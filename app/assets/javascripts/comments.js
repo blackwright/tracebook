@@ -12,14 +12,14 @@ TB.CommentsModule = ( function() {
   };
 
   var _clearForm = function($container) {
-    var form = $container.find('.comment-form')[0];
+    var form = $container.next('.comment-form')[0];
     form.reset();
   };
 
   var addComment = function(parentId, parentType, comment) {
     var $container = _getCommentsContainer(parentId, parentType);
     var $comment = $(comment);
-    $comment.prependTo($container).hide().slideDown('fast');
+    $comment.appendTo($container).hide().slideDown('fast');
     _clearForm($container);
   };
 

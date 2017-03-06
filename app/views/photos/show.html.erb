@@ -65,10 +65,10 @@
 
             <%= render @photo.comments %>
 
-            <%= render partial: "comments/comment_form",
-                              :locals => { commentable: @photo } %>
-
           </div><!-- end comments -->
+
+          <%= render partial: "comments/comment_form",
+                              :locals => { commentable: @photo } %>
 
         </div><!-- end footer box -->
 

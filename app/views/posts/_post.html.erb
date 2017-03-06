@@ -55,11 +55,11 @@
     <div class="comments-container">
 
       <%= render post.comments %>
-
-      <%= render partial: "comments/comment_form",
-                          :locals => { commentable: post } %>
       
     </div><!-- end comments -->
+
+    <%= render partial: "comments/comment_form",
+                          :locals => { commentable: post } %>
 
   </div><!-- end footer box -->
 </section>
