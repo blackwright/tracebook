@@ -431,19 +431,25 @@ a {
 }
 
 #notifications {
+  padding-right: 10px;
 
   .dropdown-toggle {
+    line-height: 50px;
+    padding: 5px 8px;
     background-color: $thunderbird;
 
     &:hover {
+      text-decoration: none;
       background-color: $thunderbird;
     }
 
     &:focus {
+      text-decoration: none;
       background-color: $thunderbird;
     }
 
     &:active {
+      text-decoration: none;
       background-color: #96281B;
     }
   }
@@ -476,9 +482,12 @@ a {
 
   .dropdown-menu {
     color: white;
-    min-width: 300px;
+    min-width: 325px;
     background-color: $bluewood;
     padding: 5px 5px;
+    border-radius: 0;
+    top: 48px;
+    right: -2px;
 
     li {
       padding: 6px 5px;
