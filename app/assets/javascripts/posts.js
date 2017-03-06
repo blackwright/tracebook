@@ -2,19 +2,19 @@ var TB = TB || {};
 
 TB.PostsModule = ( function() {
   
-  var _getPostsContainer = () => {
+  var _getPostsContainer = function() {
     return $('#posts-container');
   };
 
-  var _clearForm = () => {
+  var _clearForm = function() {
     $('#new_post')[0].reset();
   };
 
-  var _getPost = (id) => {
+  var _getPost = function(id) {
     return $(`[data-id="${id}"][data-type="Post"]`);
   };
 
-  var addPost = (post) => {
+  var addPost = function(post) {
     var $post = $(post);
     var $container = _getPostsContainer();
     $post.prependTo($container)
@@ -23,9 +23,9 @@ TB.PostsModule = ( function() {
     _clearForm();
   };
 
-  var removePost = (id) => {
+  var removePost = function(id) {
     var $post = _getPost(id);
-    $post.slideUp('fast', () => { $(this).remove(); });
+    $post.slideUp('fast', function() { $(this).remove(); });
   };
 
   return {
