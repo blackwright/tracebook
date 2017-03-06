@@ -11,7 +11,7 @@ TB.PostsModule = ( function() {
   };
 
   var _getPost = function(id) {
-    return $(`[data-id="${id}"][data-type="Post"]`);
+    return $('[data-id="' + id + '"][data-type="Post"]');
   };
 
   var addPost = function(post) {

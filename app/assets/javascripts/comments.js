@@ -3,12 +3,12 @@ var TB = TB || {};
 TB.CommentsModule = ( function() {
 
   var _getCommentsContainer = function(parentId, parentType) {
-    var $parent = $(`[data-id="${parentId}"][data-type="${parentType}"]`);
+    var $parent = $('[data-id="' + parentId + '"][data-type="' + parentType + '"]');
     return $parent.find('.comments-container');
   };
 
   var _getComment = function(id) {
-    return $(`[data-id="${id}"][data-type="Comment"]`);
+    return $('[data-id="' + id + '"][data-type="Comment"]');
   };
 
   var _clearForm = function($container) {

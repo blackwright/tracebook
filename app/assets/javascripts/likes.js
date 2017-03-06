@@ -3,12 +3,12 @@ var TB = TB || {};
 TB.LikesModule = ( function() {
 
   var _getLikeContainer = function(parentId, parentType) {
-    var $parent = $(`[data-id="${parentId}"][data-type="${parentType}"]`);
+    var $parent = $('[data-id="' + parentId + '"][data-type="' + parentType + '"]');
     return $parent.find('.like-container').first();
   };
 
   var _getFeedbackContainer = function(parentId, parentType) {
-    var $parent = $(`[data-id="${parentId}"][data-type="${parentType}"]`);
+    var $parent = $('[data-id="' + parentId + '"][data-type="' + parentType + '"]');
     return $parent.find('.feedback-container').first();
   };
 
