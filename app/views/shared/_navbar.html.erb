@@ -11,8 +11,10 @@
     </button>
 
     <div class="navbar-header">
-      <div class="nav-brand-img"></div>
-      <span class="nav-brand-word">tracebook</span>
+      <%= link_to user_newsfeed_path(current_user) do %>
+        <div class="nav-brand-img"></div>
+        <span class="nav-brand-word">tracebook</span>
+      <% end %>
     </div><!-- end navbar-header -->
 
     <!-- Collapsible Nav -->
