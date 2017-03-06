@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:create]
-  before_action :require_logout, only: [:create]
 
   def create
     @user = User.find_by_email(params[:email])
