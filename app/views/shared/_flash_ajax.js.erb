@@ -1,2 +1,5 @@
-$('#flash-wrapper').html('<%= j(render partial: "shared/flash") %>');
+$('#flash').html('<%= j(render partial: "shared/flash") %>')
+           .show()
+           .delay(3000)
+           .slideUp(250);
 <% flash.clear %>

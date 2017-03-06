@@ -85,8 +85,7 @@ a {
   .main-bkg {
     background-color: $porcelain;
     min-width: 1000px;
-    padding-top: 25px;
-    padding-bottom: 60px;
+    padding: 60px 0;
   }
 
   .main-container {
@@ -912,17 +911,22 @@ a {
 
 /* Flash */
 
-.flash {
+#flash {
   color: #333;
+  position: fixed;
   text-align: center;
-  padding: 20px 20px;
-}
+  width: 100%;
+  z-index: 3;
+  
+  .flash {
+    padding: 20px 20px;
+  }
+  
+  .success {
+    background-color: #81CFE0;
+  }
 
-.success {
-  background-color: #66CC99;
+  .error {
+    background-color: #FDE3A7;
+  }
 }
-
-.error {
-  background-color: #FDE3A7;
-}
-

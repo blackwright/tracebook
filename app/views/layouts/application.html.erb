@@ -10,15 +10,15 @@
   <body data-controller="<%= controller_name %>">
 
     <% if signed_in_user? %>
-      <%= render "shared/navbar" %>
+      <%= render partial: "shared/navbar" %>
     <% else %>
-      <%= render "shared/login" %>
+      <%= render partial: "shared/login" %>
     <% end %>
 
-    <div id="flash-wrapper">
-      <%= render "shared/flash" %>
+    <div id="flash">
+      <%= render partial: "shared/flash" %>
     </div>
-    
+
     <%= yield %>
 
   </body>

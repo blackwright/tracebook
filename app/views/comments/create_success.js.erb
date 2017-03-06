@@ -1,6 +1,6 @@
+<%= render partial: "shared/flash_ajax" %>
+
 var comment = '<%= j(render partial: "comment", locals: { comment: @comment }) %>';
 TB.CommentsModule.addComment('<%= @comment.commentable_id %>',
                              '<%= @comment.commentable_type %>',
                              comment);
-
-<%= render partial: "shared/flash_ajax" %>

@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
     def require_login
       unless signed_in_user?
-        flash[:error] = "Please sign in to continue"
+        flash[:error] = "Please sign in to continue."
         redirect_to root_url
       end
     end
