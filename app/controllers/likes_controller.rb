@@ -3,13 +3,19 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.build(like_params)
     @like.save
-    redirect_back(fallback_location: user_path(current_user))
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: current_user) }
+      format.js { render :likes }
+    end
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
     @like.destroy
-    redirect_back(fallback_location: user_path(current_user))
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: current_user) }
+      format.js { render :likes }
+    end
   end
 
   private

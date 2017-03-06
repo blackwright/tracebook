@@ -19,18 +19,20 @@ TB.CommentsModule = ( function() {
   let addComment = (parentId, parentType, comment) => {
     let $container = _getCommentsContainer(parentId, parentType);
     let $comment = $(comment);
-    $container.prepend($comment);
+    $comment.prependTo($container).hide().slideDown('fast');
     _clearForm($container);
   };
 
   let removeComment = (id) => {
     let $comment = _getComment(id);
-    $comment.remove();
+    $comment.slideUp('fast', function() {
+      $(this).remove();
+    });
   };
 
   return {
     addComment: addComment,
     removeComment: removeComment
-  }
+  };
 
 })();

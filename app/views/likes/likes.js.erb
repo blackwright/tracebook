@@ -1,0 +1,9 @@
+var like = '<%= j(render_like_link(@like.likeable)) %>';
+<% if @like.likeable_type == 'Comment' %>
+  var feedback = '<%= j(comment_feedback(@like.likeable)) %>';
+<% else %>
+  var feedback = '<%= j(post_feedback(@like.likeable)) %>';
+<% end %>
+TB.LikesModule.renderLikes('<%= @like.likeable_id %>',
+                           '<%= @like.likeable_type %>',
+                           like, feedback);

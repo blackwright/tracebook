@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
   before_action :require_login
 
   private
@@ -27,10 +26,6 @@ class ApplicationController < ActionController::Base
         flash[:error] = "Please sign in to continue"
         redirect_to root_url
       end
-    end
-
-    def require_logout
-      sign_out if signed_in_user?
     end
 
     def current_user

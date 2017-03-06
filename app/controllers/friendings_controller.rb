@@ -1,5 +1,4 @@
 class FriendingsController < ApplicationController
-  before_action :require_login
 
   def create
     friending = current_user.initiated_friendings

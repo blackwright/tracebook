@@ -17,8 +17,10 @@
 
       <!-- Comment Links -->
       <div class="post-feedback">
-        <%= render_like_link(comment) %>
-        <span class="inline">
+        <div class="like-container">
+          <%= render_like_link(comment) %>
+        </div>
+        <span class="feedback-container inline">
           <%= comment_feedback(comment) %>
         </span>
         <%= render_delete_link(comment) %>

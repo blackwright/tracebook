@@ -37,9 +37,11 @@
         <!-- Footer -->
         <div class="box box-footer padding-top padding-bottom col-xs-12">
           <!-- Like/Comment/Delete Links -->
-          <div class="post-links">
+          <div class="post-links clearfix">
 
-            <%= render_like_link(@photo) %>
+            <div class="like-container">
+              <%= render_like_link(@photo) %>
+            </div>
 
             <% if current_user == @photo.author %>
               <%= link_to "Delete", user_photo_path(@photo.author, @photo),
@@ -51,7 +53,9 @@
 
           <!-- Feedback -->
           <div class="post-feedback padding-top">
-            <span><%= post_feedback(@photo) %></span>
+            <div class="feedback-container">
+              <%= post_feedback(@photo) %>
+            </div>
           </div><!-- end feedback -->
 
           <div class="divider"></div>

@@ -17,13 +17,15 @@ TB.PostsModule = ( function() {
   let addPost = (post) => {
     let $post = $(post);
     let $container = _getPostsContainer();
-    $container.prepend($post);
+    $post.prependTo($container).hide().slideDown('fast');
     _clearForm();
   };
 
   let removePost = (id) => {
     let $post = _getPost(id);
-    $post.remove();
+    $post.slideUp('fast', function() {
+      $(this).remove();
+    });
   };
 
   return {

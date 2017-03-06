@@ -27,9 +27,11 @@
   <!-- Footer -->
   <div class="box box-footer padding-top padding-bottom col-xs-12">
     <!-- Like/Comment/Delete Links -->
-    <div class="post-links">
+    <div class="post-links clearfix">
 
-      <%= render_like_link(post) %>
+      <div class="like-container">
+        <%= render_like_link(post) %>
+      </div>
 
       <% if current_user == post.author %>
         <%= link_to "Delete", user_post_path(post.author, post),
@@ -42,7 +44,9 @@
 
     <!-- Feedback -->
     <div class="post-feedback padding-top">
-      <span><%= post_feedback(post) %></span>
+      <div class="feedback-container">
+        <span><%= post_feedback(post) %></span>
+      </div>
     </div><!-- end feedback -->
 
     <div class="divider"></div>
@@ -53,7 +57,7 @@
       <%= render post.comments %>
 
       <%= render partial: "comments/comment_form",
-                        :locals => { commentable: post } %>
+                          :locals => { commentable: post } %>
       
     </div><!-- end comments -->
 
