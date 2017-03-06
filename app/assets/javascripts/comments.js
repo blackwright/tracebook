@@ -2,29 +2,29 @@ var TB = TB || {};
 
 TB.CommentsModule = ( function() {
 
-  let _getCommentsContainer = (parentId, parentType) => {
-    let $parent = $(`[data-id="${parentId}"][data-type="${parentType}"]`);
+  var _getCommentsContainer = (parentId, parentType) => {
+    var $parent = $(`[data-id="${parentId}"][data-type="${parentType}"]`);
     return $parent.find('.comments-container');
   };
 
-  let _getComment = (id) => {
+  var _getComment = (id) => {
     return $(`[data-id="${id}"][data-type="Comment"]`);
   };
 
-  let _clearForm = ($container) => {
-    let form = $container.find('.comment-form')[0];
+  var _clearForm = ($container) => {
+    var form = $container.find('.comment-form')[0];
     form.reset();
   };
 
-  let addComment = (parentId, parentType, comment) => {
-    let $container = _getCommentsContainer(parentId, parentType);
-    let $comment = $(comment);
+  var addComment = (parentId, parentType, comment) => {
+    var $container = _getCommentsContainer(parentId, parentType);
+    var $comment = $(comment);
     $comment.prependTo($container).hide().slideDown('fast');
     _clearForm($container);
   };
 
-  let removeComment = (id) => {
-    let $comment = _getComment(id);
+  var removeComment = (id) => {
+    var $comment = _getComment(id);
     $comment.slideUp('fast', function() {
       $(this).remove();
     });
