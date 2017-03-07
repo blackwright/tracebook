@@ -46,7 +46,7 @@
               <ul class="dropdown-menu">
                 <% current_user.pending_requests.each do |request| %>
                   <li>
-                    <div>
+                    <div class="request">
                       <div class="request-image">
                         <%= link_to request.friend_initiator do %>
                           <%= image_tag request.friend_initiator.avatar_url %>
@@ -57,7 +57,7 @@
                           <%= request.friend_initiator.full_name %>
                         <% end %>
                       </div>
-                      <div class="request-buttons pull-right">
+                      <div class="request-buttons">
                         <%= link_to "Accept", friending_path(request.id), :method => :put, class: "btn btn-success" %>
                         <%= link_to "Decline", friending_path(request.friend_initiator.id), :method => :delete, class: "btn btn-danger" %>
                       </div>
