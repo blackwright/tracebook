@@ -10,6 +10,10 @@ textarea {
   resize: none;
 }
 
+.comment-form {
+  display: none;
+}
+
 img {
   object-fit: cover;
   width: 100%;
@@ -299,12 +303,13 @@ a {
   }
 
   .post-feedback {
+    padding-top: 8px;
     font-size: 13px;
     color: #666;
   }
 
   .divider {
-    margin-top: 15px;
+    margin-top: 10px;
     height: 1px;
     border-top: 1px solid #ccc;
   }
@@ -321,6 +326,11 @@ a {
       font-size: 14px;
       margin-top: 10px;
     }
+  }
+
+  .comment-feedback {
+    font-size: 13px;
+    color: #666;
   }
 
   .comment-form textarea {
@@ -710,9 +720,7 @@ a {
 }
 
 
-/*
-  Login Header ========================
-*/
+/* Login Header */
 
 .login-header {
   position: relative;

@@ -67,6 +67,10 @@
 
           </div><!-- end comments -->
 
+          <div class="comment-link-container padding-top">
+            <%= link_to "Leave a Comment", nil, class: "comment-link" %>
+          </div>
+
           <%= render partial: "comments/comment_form",
                               :locals => { commentable: @photo } %>
 

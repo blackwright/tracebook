@@ -45,7 +45,7 @@
     </div><!-- end links -->
 
     <!-- Feedback -->
-    <div class="post-feedback padding-top">
+    <div class="post-feedback">
       <div class="feedback-container">
         <span><%= post_feedback(post) %></span>
       </div>
@@ -59,6 +59,10 @@
       <%= render post.comments %>
       
     </div><!-- end comments -->
+
+    <div class="comment-link-container padding-top">
+      <%= link_to "Leave a Comment", nil, class: "comment-link" %>
+    </div>
 
     <%= render partial: "comments/comment_form",
                           :locals => { commentable: post } %>
