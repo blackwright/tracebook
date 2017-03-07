@@ -2,7 +2,9 @@
   <div class="col-xs-12">
     <!-- Comment Author Image -->
     <div class="author-img box pull-left">
-      <%= image_tag comment.author.avatar_url %>
+      <%= link_to comment.author do %>
+        <%= image_tag comment.author.avatar_url %>
+      <% end %>
     </div>
     <!-- Comment Body -->
     <div class="comment-body pull-left">

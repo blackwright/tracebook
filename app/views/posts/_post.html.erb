@@ -5,7 +5,9 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="author-img">
-          <%= image_tag post.author.avatar_url %>
+          <%= link_to post.author do %>
+            <%= image_tag post.author.avatar_url %>
+          <% end %>
         </div>
         <div class="author-details">
           <%= link_to post.author.full_name %>
