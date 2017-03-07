@@ -8,7 +8,7 @@
     </div>
     <!-- Profile Image -->
     <div class="profile-img">
-      <%= link_to user do %>
+      <%= link_to user_photos_path(user) do %>
         <%= image_tag user.avatar_url, alt: "Profile Picture" %>
       <% end %>
     </div>
