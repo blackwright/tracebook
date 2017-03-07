@@ -25,20 +25,38 @@ end
 
 puts "Seeding profiles..."
 User.all.each do |u|
-  u.profile.update(birthday: Faker::Date.between(40.years.ago, 18.years.ago),
-                   college: Faker::Educator.university,
-                   hometown: Faker::Address.city,
-                   location: Faker::Address.street_name,
-                   phone: Faker::PhoneNumber.cell_phone,
-                   tagline: Faker::Lorem.paragraph,
-                   about: Faker::Lorem.paragraph)
+  u.profile.update!(birthday: Faker::Date.between(40.years.ago, 18.years.ago),
+                    college: Faker::Educator.university,
+                    hometown: Faker::Address.city,
+                    location: Faker::Address.street_name,
+                    phone: Faker::PhoneNumber.cell_phone,
+                    tagline: Faker::Lorem.paragraph,
+                    about: Faker::Lorem.paragraph)
+end
+
+puts "Seeding photos..."
+User.all.each_with_index do |u, i|
+  puts "for user #{i}..."
+  profile_pic = u.photos.build
+  profile_pic.image_from_url(Faker::LoremPixel.image("400x400"))
+  profile_pic.save!
+  cover_pic = u.photos.build
+  cover_pic.image_from_url(Faker::LoremPixel.image("700x500"))
+  cover_pic.save!
+  u.profile.update!(avatar_id: profile_pic.id,
+                    cover_id: cover_pic.id)
+  2.times do
+    p = u.photos.build
+    p.image_from_url(Faker::LoremPixel.image("400x400"))
+    p.save!
+  end
 end
 
 puts "Seeding posts..."
 User.all.each do |user|
   MULTIPLIER.times do
     post = user.authored_posts.build(body: Faker::Lorem.paragraph(10),
-                    created_at: Faker::Date.between(2.days.ago, Time.now))
+                    created_at: Faker::Date.between(4.days.ago, Time.now))
     post.save!
   end
 end

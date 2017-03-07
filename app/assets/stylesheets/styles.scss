@@ -474,9 +474,28 @@ a {
   .request-buttons {
 
     .btn {
+      font-size: .85em;
       vertical-align: middle;
+      border-radius: 0;
       padding: 2px 4px;
       margin-left: 3px;
+      border: 0;
+    }
+
+    .btn-success {
+      background-color: #03A678;
+
+      &:hover {
+        background-color: #049372;
+      }
+    }
+
+    .btn-danger {
+      background-color: #C0392B;
+
+      &:hover {
+        background-color: #96281B;
+      }
     }
   }
 
@@ -753,6 +772,7 @@ a {
   height: 100px;
   width: 100px;
   border: 1px solid #aaa;
+  overflow: hidden;
 }
 
 .search-details {
