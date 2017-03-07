@@ -49,9 +49,12 @@ h4 {
   overflow: hidden;
 }
 
+.btn {
+  border: 0;
+}
+
 .btn-primary {
   background-color: $dark-madison;
-  border: 0;
 
   &:hover {
     background-color: $dark-madison;
@@ -937,6 +940,14 @@ a {
     }
   }
 }
+
+/* Newsfeed */
+
+.feed-row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 
 /* Flash */
 
