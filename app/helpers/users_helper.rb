@@ -2,8 +2,10 @@ module UsersHelper
 
   def render_profile_or_friend_link(user)
     if current_user == user
-      link_to "Edit Profile", edit_user_profile_path(current_user),
-                              id: "profile-link", class: "right"
+      unless current_page?(user_profile_path(current_user))
+        link_to "Edit Profile", edit_user_profile_path(current_user),
+                                id: "profile-link", class: "right"
+      end
     else
       if current_user.friends_with?(user)
         link_to "Unfriend", friending_path(user),
