@@ -15,13 +15,19 @@
         </small>
       </div>
       <div class="search-bio">
-        Currently lives in <%= search_result.profile.location %>
+        <% if search_result.profile.location %>
+          Currently lives in <%= search_result.profile.location %>
+        <% end %>
       </div>
       <div class="search-bio">
-        From <%= search_result.profile.hometown %>
+        <% if search_result.profile.hometown %>
+          From <%= search_result.profile.hometown %>
+        <% end %>
       </div>
       <div class="search-bio">
-        Born on <%= date_to_string(search_result.profile.birthday) %>
+        <% if search_result.profile.birthday %>
+          Born on <%= date_to_string(search_result.profile.birthday) %>
+        <% end %>
       </div>
     </div>
     <%= render_friend_or_unfriend(search_result) %>
