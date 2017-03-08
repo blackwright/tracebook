@@ -40,7 +40,7 @@
         <% if current_user.pending_requests.any? %>
           <li class="dropdown">
             <div id="notifications">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <a href="#" class="dropdown-toggle box" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%= pluralize(current_user.pending_requests.count, "Request") %>
               </a>
               <ul class="dropdown-menu">

@@ -1,5 +1,5 @@
-<div class="row">
-  <section id="cover">
+<section class="box">
+  <div id="cover" class="row">
     <!-- Cover Image -->
     <div class="cover-img">
       <%= link_to user_photos_path(user) do %>
@@ -16,33 +16,33 @@
     <div class="cover-name">
       <h1><%= user.full_name %></h1>
     </div>
-  </section>
-</div>
+  </div>
 
-<div class="row">
-  <nav id="main-nav">
-    <ul class="nav">
-      <%= content_tag :li,
-          class: nav_link_class(user_path(user)) do %>
-        <%= link_to "Timeline", user_path(user) %>
-      <% end %><!--
-      --><%= content_tag :li,
-             class: nav_link_class(user_profile_path(user)) do %>
-        <%= link_to "About", user_profile_path(user) %>
-      <% end %><!--
-      --><%= content_tag :li,
-             class: nav_link_class(user_photos_path(user)) do %>
-        <%= link_to user_photos_path(user) do %>
-          Photos<small>(<%= user.photos.count %>)</small>
+  <div class="row">
+    <nav id="main-nav">
+      <ul class="nav">
+        <%= content_tag :li,
+            class: nav_link_class(user_path(user)) do %>
+          <%= link_to "Timeline", user_path(user) %>
+        <% end %><!--
+        --><%= content_tag :li,
+               class: nav_link_class(user_profile_path(user)) do %>
+          <%= link_to "About", user_profile_path(user) %>
+        <% end %><!--
+        --><%= content_tag :li,
+               class: nav_link_class(user_photos_path(user)) do %>
+          <%= link_to user_photos_path(user) do %>
+            Photos<small>(<%= user.photos.count %>)</small>
+          <% end %>
+        <% end %><!--
+        --><%= content_tag :li,
+               class: nav_link_class(user_friends_path(user)) do %>
+          <%= link_to user_friends_path(user) do %>
+            Friends<small>(<%= user.all_friends.count %>)</small>
+          <% end %>
         <% end %>
-      <% end %><!--
-      --><%= content_tag :li,
-             class: nav_link_class(user_friends_path(user)) do %>
-        <%= link_to user_friends_path(user) do %>
-          Friends<small>(<%= user.all_friends.count %>)</small>
-        <% end %>
-      <% end %>
-    </ul>
-    <%= render_profile_or_friend_link(user) %>
-  </nav>
-</div>
+      </ul>
+      <%= render_profile_or_friend_link(user) %>
+    </nav>
+  </div>
+</section>

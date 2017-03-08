@@ -4,6 +4,7 @@ body {
   font-family: $roboto;
   padding-bottom: 50px;
   overflow: scroll;
+  background-color: #eee;
 }
 
 textarea {
@@ -12,6 +13,11 @@ textarea {
 
 .comment-form {
   display: none;
+}
+
+.item-border {
+  border: 1px solid #ccc;
+  padding: 5px 5px;
 }
 
 img {
@@ -568,7 +574,6 @@ a {
     margin-top: -1px;
     height: 300px;
     overflow: hidden;
-    border: 1px solid #999;
 
     img {
       height: 100%;
@@ -581,7 +586,7 @@ a {
     padding: 5px 5px;
     left: 15px;
     bottom: -25px;
-    border: 1px solid #999;
+    border: 1px solid #ccc;
     background-color: white;
     overflow: hidden;
     z-index: 2;
@@ -596,6 +601,7 @@ a {
     position: absolute;
     left: 170px;
     bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 
     h1 {
       color: white;
@@ -617,8 +623,7 @@ a {
   ul {
     padding-left: 160px;
     height: 100%;
-    border: 1px solid #aaa;
-    margin-top: -1px;
+    background-color: white;
 
     li {
       display: inline-block;
@@ -673,13 +678,17 @@ a {
 }
 
 .box {
-  border: 1px solid #aaa;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.1);
 }
 
 .box-header {
   margin-top: 15px;
   position: relative;
   background-color: $madison;
+  padding: 4px 0;
 
   small {
     margin-left: 5px;
@@ -699,10 +708,6 @@ a {
   padding-bottom: 15px;
 }
 
-.box-body {
-  margin-top: -1px;
-}
-
 .box-post {
   margin-top: 15px;
   position: relative;
@@ -712,7 +717,7 @@ a {
   margin-top: -1px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #eaeaea;
+  background-color: #F1F1F1;
 
   footer-link {
     float: right;
@@ -863,7 +868,6 @@ a {
 
 .side-photo {
   margin-bottom: 15px;
-  height: 100px;
   overflow: hidden;
 
   img {
@@ -954,6 +958,8 @@ a {
 /* Friendings */
 
 .item-box {
+  border: 1px solid #ccc;
+
   .friend-img {
     display: inline-block;
     height: 75px;
@@ -967,7 +973,7 @@ a {
 
   .friend-details {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 15px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
