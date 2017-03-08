@@ -242,6 +242,23 @@ a {
   }
 }
 
+/* Profile */
+
+#profile {
+  dt {
+    float: left;
+    clear: left;
+
+    &:after {
+      content: ":";
+    }
+  }
+
+  dd {
+    margin-left: 100px;
+  }
+}
+
 
 /* Timeline Page */
 
@@ -250,7 +267,7 @@ a {
     dt {
       float: left;
       clear: left;
-      padding: 3px 0;
+      padding: 10px 0;
 
       &:after {
         content: ":";
