@@ -10,7 +10,7 @@
         <!-- Create Post -->
         <% if @new_post %>
           <%= render partial: "posts/new",
-              :locals => { user: @user, post: @new_post } %>
+                              :locals => { user: @user, post: @new_post } %>
         <% end %>
         <!-- Feed Posts -->
         <div id="posts-container">

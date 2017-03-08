@@ -67,4 +67,4 @@ TB.CommentsModule = ( function() {
 
 $(document).ready( function() {
   TB.CommentsModule.init();
-})
+});
