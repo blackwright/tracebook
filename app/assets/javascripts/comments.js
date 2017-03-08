@@ -8,7 +8,7 @@ TB.CommentsModule = ( function() {
   };
 
   var _commentLinkListener = function() {
-    $('.comment-link').click( function(event) {
+    $(document).on('click', '.comment-link', function(event) {
       event.preventDefault();
       var $linkContainer = $(event.target).parent();
       var $form = $linkContainer.next();
@@ -19,7 +19,7 @@ TB.CommentsModule = ( function() {
   };
 
   var _cancelCommentLinkListener = function() {
-    $('.cancel-comment').click( function(event) {
+    $(document).on('click', '.cancel-comment', function(event) {
       event.preventDefault();
       var $form = $(event.target).parent();
       var $linkContainer = $form.prev();

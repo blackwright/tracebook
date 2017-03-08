@@ -57,11 +57,11 @@
     <div class="comments-container">
 
       <%= render post.comments %>
-      
+
     </div><!-- end comments -->
 
     <div class="comment-link-container padding-top">
-      <%= link_to "Leave a Comment", '#', class: "comment-link" %>
+      <%= link_to "Leave a Comment", nil, class: "comment-link" %>
     </div>
 
     <%= render partial: "comments/comment_form",
