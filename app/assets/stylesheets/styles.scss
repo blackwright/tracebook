@@ -1,7 +1,8 @@
 /* General */
 
 body {
-  font-family: $roboto;
+  font-family: $body-stack;
+  font-size: 16px;
   padding-bottom: 50px;
   overflow: scroll;
   background-color: #eee;
@@ -26,8 +27,7 @@ img {
 }
 
 h1, h2, h3 {
-  font-family: $lato;
-  font-weight: 600;
+  font-family: $header-stack;
   margin: 10px 0 10px;
 }
 
@@ -37,7 +37,7 @@ h3 {
 }
 
 h4 {
-  font-family: $lato;
+  font-family: $header-stack;
 }
 
 .right {
@@ -267,7 +267,6 @@ a {
     dt {
       float: left;
       clear: left;
-      padding: 10px 0;
 
       &:after {
         content: ":";
@@ -371,7 +370,7 @@ a {
 /* Top Navigation Bar */
 
 #top-nav {
-  font-family: $lato;
+  font-family: $header-stack;
   background-color: $bluewood;
   margin-bottom: 0;
 
