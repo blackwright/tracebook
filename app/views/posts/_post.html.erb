@@ -10,7 +10,7 @@
           <% end %>
         </div>
         <div class="author-details">
-          <%= link_to post.author.full_name %>
+          <%= link_to post.author.full_name, user_path(post.author) %>
           <%= time_tag post.created_at.to_date, posted_on(post.created_at),
               pubdate: true, class: "post-date" %>
         </div>
