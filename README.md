@@ -2,9 +2,7 @@
 
 A social network clone built with Ruby on Rails. View it on [Heroku](http://tracebook.herokuapp.com/).
 
-Explore the app using one of its prepopulated accounts, or with an empty guest account.
-
-![Signup screen](https://github.com/blackwright/tracebook/blob/master/screenshots/signup.jpg?raw=true)
+Explore the app by logging in with one of many prepopulated accounts, or start from scratch with a blank guest account.
 
 **Prepopulated account logins:**
 
@@ -21,6 +19,8 @@ guest@email.com
 
 password
 ```
+
+![Signup screen](https://github.com/blackwright/tracebook/blob/master/screenshots/signup.jpg?raw=true)
 
 ![Welcome screen](https://github.com/blackwright/tracebook/blob/master/screenshots/welcome.jpg?raw=true)
 
