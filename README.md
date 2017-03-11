@@ -54,6 +54,7 @@ password
 ![Comment creation screen](https://github.com/blackwright/tracebook/blob/master/screenshots/post-comment.jpg?raw=true)
 
 - Posts and comments can be liked by all users.
+- Posts and comments have a running tally of likes.
 - Users can view their friends' recent posts through a newsfeed.
 
 ### Photos
