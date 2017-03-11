@@ -49,6 +49,7 @@ password
 
 ![Post creation screen](https://github.com/blackwright/tracebook/blob/master/screenshots/create-post.jpg?raw=true)
 
+- Users have a newsfeed showing all of their friends' recent posts.
 - Posts can only be commented on by the author's friends.
 
 ![Comment creation screen](https://github.com/blackwright/tracebook/blob/master/screenshots/post-comment.jpg?raw=true)
