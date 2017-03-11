@@ -5,7 +5,7 @@
       <div class="row">
         <section class="box box-header header-title col-xs-12">
           <header>
-            <h2><%= @search_results.count %> Search Results</h2>
+            <h2><%= @search_results ? @search_results.count : 0 %> Search Results</h2>
           </header>
         </section>
       </div><!-- end row -->
