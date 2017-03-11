@@ -429,17 +429,24 @@ a {
     margin: 0 5px;
   }
 
-  li.nav-element a {
-    &:hover {
-      background-color: $dark-madison;
-    }
+  .nav-element {
+    font-size: 14px;
+  }
 
-    &:focus {
-      background-color: $dark-madison;
-    }
+  li.nav-element {
+    a {
 
-    &:active {
-      background-color: $dark-madison;
+      &:hover {
+        background-color: $dark-madison;
+      }
+
+      &:focus {
+        background-color: $dark-madison;
+      }
+
+      &:active {
+        background-color: $dark-madison;
+      }
     }
   }
 
@@ -763,7 +770,7 @@ a {
   color: #fff;
   position: absolute;
   width: 1000px;
-  top: 8px;
+  top: 3px;
   left: 0;
   right: 0;
   margin-left: auto;

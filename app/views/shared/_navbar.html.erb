@@ -41,7 +41,9 @@
           <li class="dropdown">
             <div id="notifications">
               <a href="#" class="dropdown-toggle box" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= pluralize(current_user.pending_requests.count, "Request") %>
+                <span class="nav-element">
+                  <%= pluralize(current_user.pending_requests.count, "Request") %>
+                </span>
               </a>
               <ul class="dropdown-menu">
                 <% current_user.pending_requests.each do |request| %>
