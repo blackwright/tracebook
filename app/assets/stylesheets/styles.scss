@@ -435,6 +435,8 @@ a {
 
   li.nav-element {
     a {
+      padding-left: 8px;
+      padding-right: 8px;
 
       &:hover {
         background-color: $dark-madison;
