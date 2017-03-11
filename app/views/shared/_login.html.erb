@@ -1,7 +1,9 @@
 <header class="login-header">
   <div class="login-header-content">
-    <%= image_tag "tracebook-logo.png", class: "login-logo" %>
-    <h1>tracebook</h1>
+    <div class="login-logo-container">
+      <%= image_tag "tracebook-logo.png", class: "login-logo" %>
+      <h1>tracebook</h1>
+    </div>
     <%= form_tag session_path, class: "login-form-container" do %>
       <table class="login-form">
         <tr>
