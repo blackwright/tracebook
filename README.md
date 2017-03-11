@@ -26,6 +26,12 @@ password
 
 ## Features
 
+### Profile Information
+
+- Users can share personal details about themselves, such as contact and location info.
+
+![About screen](https://github.com/blackwright/tracebook/blob/master/screenshots/profile.jpg?raw=true)
+
 ### Finding and Adding Friends
 
 - Friends can be searched for by name.
@@ -55,10 +61,20 @@ password
 - Photos can be added to a gallery through links or upload.
 - Users can select an image to use as their profile or cover photo.
 - Photos can only be commented on by the author's friends.
-- Images hosted on Amazon S3.
 
 ![Photos screen](https://github.com/blackwright/tracebook/blob/master/screenshots/photos.jpg?raw=true)
 
 ### Mailer
 
 - Newly signed-up users are automatically greeted with a welcome email.
+
+### Technical Notes
+
+- Postgresql database seeded with Faker gem.
+- Posts, comments, and likes processed through ajax request.
+- Utilizes flash notices from native Rails and ajax.
+- Emails delivered with Heroku Sendgrid.
+- Image attachments with Paperclip gem, hosted on Amazon S3.
+- User search handled through SQL query.
+- Environmental variables imported through Figaro gem and secrets.
+- SASS styling with Bootstrap components.
