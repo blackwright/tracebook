@@ -4,6 +4,8 @@ A social network clone built with Ruby on Rails. View it on [Heroku](http://trac
 
 Explore the app using one of its prepopulated accounts, or with an empty guest account.
 
+![Signup screen](https://github.com/blackwright/tracebook/blob/master/screenshots/signup.jpg?raw=true)
+
 **Prepopulated account logins:**
 
 ```
@@ -20,18 +22,31 @@ guest@email.com
 password
 ```
 
+![Welcome screen](https://github.com/blackwright/tracebook/blob/master/screenshots/welcome.jpg?raw=true)
+
 ## Features
 
 ### Finding and Adding Friends
 
 - Friends can be searched for by name.
+
+![Search screen](https://github.com/blackwright/tracebook/blob/master/screenshots/search.jpg?raw=true)
+
 - Friend requests can be sent to other users.
 - A friend request must be accepted in order to add a friend.
 
+![Friend request screen](https://github.com/blackwright/tracebook/blob/master/screenshots/friends.jpg?raw=true)
+
 ### Posting and Commenting
 
-- Users can post their thoughts on their own timeline.
+- Each user has a timeline for posting their thoughts.
+
+![Post creation screen](https://github.com/blackwright/tracebook/blob/master/screenshots/create-post.jpg?raw=true)
+
 - Posts can only be commented on by the author's friends.
+
+![Comment creation screen](https://github.com/blackwright/tracebook/blob/master/screenshots/post-comment.jpg?raw=true)
+
 - Posts and comments can be liked by all users.
 - Users can view their friends' recent posts through a newsfeed.
 
@@ -41,6 +56,8 @@ password
 - Users can select an image to use as their profile or cover photo.
 - Photos can only be commented on by the author's friends.
 - Images hosted on Amazon S3.
+
+![Photos screen](https://github.com/blackwright/tracebook/blob/master/screenshots/photos.jpg?raw=true)
 
 ### Mailer
 
