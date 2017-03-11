@@ -107,9 +107,12 @@ class User < ApplicationRecord
     photos.limit(6)
   end
 
-  def self.search(query)
-    where("first_name ILIKE ? OR last_name ILIKE ?",
-          "#{query}%", "#{query}%") unless query.blank?
+  def self.search(current_user_id, query)
+    unless query.blank?
+      where("first_name ILIKE ? OR last_name ILIKE ?",
+            "#{query}%", "#{query}%")
+      .where.not(:id => current_user_id)
+    end
   end
 
   def feed_posts

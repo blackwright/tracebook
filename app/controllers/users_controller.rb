@@ -36,7 +36,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @search_results = User.includes(:profile).search(params[:search])
+    @search_results = User.includes(:profile)
+                          .search(current_user.id, params[:search])
   end
 
     private
