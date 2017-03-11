@@ -72,8 +72,8 @@ password
 ### Technical Notes
 
 - Postgresql database seeded with Faker gem.
-- Posts, comments, and likes processed through ajax request.
-- Utilizes flash notices from native Rails and ajax.
+- Posts, comments, and likes processed through AJAX request.
+- Utilizes flash notices from native Rails and AJAX.
 - Emails delivered with Heroku Sendgrid.
 - Image attachments with Paperclip gem, hosted on Amazon S3.
 - User search handled through SQL query.
